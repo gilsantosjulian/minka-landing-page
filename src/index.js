@@ -3,9 +3,10 @@ import { createBrowserNavigation } from 'navi';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-navi';
+
 import routes from './routes';
-import App from 'components/wrappers/Wrapper.jsx';
 import * as serviceWorker from './serviceWorker';
+import App from 'components/wrappers/Wrapper.jsx';
 import 'assets/scss/app.scss';
 
 // `Navi.app()` is responsible for exporting your app's pages and App

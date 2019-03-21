@@ -1,17 +1,23 @@
 import { mount, route } from 'navi'
 
-export default mount({
-  '/': route({
-    title: 'Home',
-    getView: () => import('./views/public/Home.jsx')
-  }),
-    
-  '/another': route({
-    title: 'Another',
-    getView: async () => {
-      await new Promise(resolve => setTimeout(resolve, 1000))
+import publicViews from 'config/publicViews';
 
-      return import('./views/public/Another.mdx')
-    }
-  }),
-})
+const getPublicViews = () => {
+  const routes = {};
+
+  publicViews.forEach(publicView => {
+    routes[publicView.path] = route({
+      title: publicView.name,
+      getView: () => import(`views/public/${publicView.name}.${publicView.extension}`),
+    });
+  });
+
+  return routes;
+}
+
+console.log({...getPublicViews()});
+
+
+export default mount({
+  ...getPublicViews(),
+});
