@@ -1,0 +1,13 @@
+#horizontal-spinner {
+  width: 25%;
+  animation: loading infinite 2s ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(0vw)
+  }
+  100% {
+    transform: translateX(100vw)
+  }
+}

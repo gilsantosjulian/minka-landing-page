@@ -1,12 +1,12 @@
-import register from "navi-scripts/register";
-import { createBrowserNavigation } from "navi";
-import React from "react";
-import ReactDOM from "react-dom";
-import { Router } from "react-navi";
-import "./index.css";
-import routes from "./routes";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import register from 'navi-scripts/register';
+import { createBrowserNavigation } from 'navi';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router } from 'react-navi';
+import routes from './routes';
+import App from 'components/wrappers/Wrapper.jsx';
+import * as serviceWorker from './serviceWorker';
+import 'assets/scss/app.scss';
 
 // `Navi.app()` is responsible for exporting your app's pages and App
 // component to the static renderer, and for starting the app with the
@@ -36,7 +36,7 @@ register({
     // React requires that you call `ReactDOM.hydrate` if there is statically
     // rendered content in the root element, but prefers us to call
     // `ReactDOM.render` when it is empty.
-    let hasStaticContent = process.env.NODE_ENV === "production";
+    let hasStaticContent = process.env.NODE_ENV === 'production';
     let renderer = hasStaticContent ? ReactDOM.hydrate : ReactDOM.render;
 
     // Start react, passing in the current navigation state.
@@ -44,7 +44,7 @@ register({
       <Router navigation={navigation}>
         <App />
       </Router>,
-      document.getElementById("root")
+      document.getElementById('root')
     );
 
     // If you want your app to work offline and load faster, you can change
