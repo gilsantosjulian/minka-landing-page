@@ -5,13 +5,13 @@ import { Grommet } from 'grommet';
 
 import theme from 'config/theme';
 import NotFound from 'views/public/NotFound.mdx';
-import HorizontalSpinner from 'components/specifics/HorizontalSpinner.jsx';
+import HorizontalSpinner from 'components/generics/HorizontalSpinner.jsx';
 
 export default () => {
   let loadingRoute = useLoadingRoute()
 
   return (
-    <Grommet theme={theme}>
+    <Grommet theme={theme} full>
         <NotFoundBoundary render={() => <NotFound/>}>
           <HorizontalSpinner visibility={loadingRoute}/>
           <MDXProvider components={{
