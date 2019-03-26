@@ -7,7 +7,7 @@ export default ({ text }) => {
       {(size) => {
         return (
           <Heading
-            margin={{ left: size === 'xsmall' || size === 'small' ? 'none' : 'xlarge' }}
+            margin={{ left: size === 'xsmall' || size === 'small' ? 'none' : 'xlarge', top: 'large' }}
             alignSelf={size === 'xsmall' || size === 'small' ? 'center' : 'start'}
             color='dark-2'>
             <span className='title-underlined'>

@@ -48,8 +48,6 @@ export default () => {
         return (
           <Box
             id={ID}
-            height='100vh'
-            margin={size === 'xsmall' || size === 'small' ? { top: '35%' } : { top: '0%' }}
             style={styles.container}
             direction={size === 'small' || size === 'xsmall' ? 'column' : 'row'}
             onMouseMove={onMouseMove}

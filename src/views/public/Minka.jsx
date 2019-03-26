@@ -9,6 +9,7 @@ export default () => {
 
   return (
     <Box>
+      <Box height='xsmall' />
       <Toolbar />
       <Home />
       <About />
