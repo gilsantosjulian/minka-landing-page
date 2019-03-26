@@ -19,7 +19,8 @@ export default ({
   const renderCard = (image, text, size) => {
     return (
       <Box
-        width={size === 'xsmall' || size === 'small' ? '100%' : '30%'}
+        width={size === 'xsmall' || size === 'small' ? '60%' : '30%'}
+        margin={size === 'xsmall' || size === 'small' ? 'medium' : 'none'}
         elevation='small'
         round='small'
         align='center'
@@ -47,7 +48,8 @@ export default ({
             direction={size === 'xsmall' || size === 'small' ? 'column' : 'row'}
             pad='medium'
             gap='medium'
-            justify='center'>
+            justify='center'
+            align={size === 'xsmall' || size === 'small' ? 'center' : 'stretch'}>
             {renderCard(cupImage, cupText, size)}
             {renderCard(bbqImage, bbqText, size)}
             {renderCard(noteImage, noteText, size)}
