@@ -35,7 +35,7 @@ const getContentOfViewConfigFiles = (fileNames, viewsFolderPath) => {
       createAdditionalConfigFileOfView(fileNameSplitted[0], viewsFolderPath);
       contentOfViewConfigFiles.push({
         name: fileNameSplitted[0],
-        path: fileNameSplitted[0].toLowerCase() === 'home' ? '/' : `/${upperCamelCaseToSlugCase(fileNameSplitted[0])}`,
+        path: fileNameSplitted[0].toLowerCase() === 'minka' ? '/' : `/${upperCamelCaseToSlugCase(fileNameSplitted[0])}`,
         extension: fileNameSplitted[fileNameSplitted.length-1],
       });
     }

@@ -2,7 +2,12 @@
 
 @import './components/specifics/leftSide/titleUnderlined.scss';
 @import './components/specifics/leftSide/typing.scss';
-@import './components/specifics/leftSide/blockquoute.scss';
+@import './components/specifics/leftSide/blockquote.scss';
+
+@import './components/specifics/unresponsiveMenu/menuItem.scss';
+
+@import './components/specifics/toolbar/menuButton.scss';
+@import './components/specifics/toolbar/responsiveMenu.scss';
 
 @import './font.scss';
 @import '../../../node_modules/react-typist/dist/Typist.css';
@@ -10,6 +15,12 @@
 * {
   margin: 0px;
   padding: 0px;
+}
+
+*:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0;
+  border: 0;
 }
 
 html, body, #root {

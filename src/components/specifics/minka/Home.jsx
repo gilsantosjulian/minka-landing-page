@@ -3,7 +3,15 @@ import { Box, Image, ResponsiveContext } from 'grommet';
 
 import LeftSide from 'components/specifics/home/LeftSide';
 import RightSide from 'components/specifics/home/RightSide';
-import { TXT_1, TXT_2, TXT_3, TXT_4, TXT_5 } from 'assets/strings';
+import { TXT_1, TXT_2, TXT_3, TXT_4, TXT_5, TXT_6, TXT_7, TXT_8, TXT_9 } from 'assets/strings';
+
+const styles = {
+  container: {
+    position: 'relative',
+  },
+};
+
+const ID = 'home';
 
 export default () => {
   const [x, setX] = useState(0);
@@ -39,7 +47,10 @@ export default () => {
       {(size) => {
         return (
           <Box
-            fill
+            id={ID}
+            height='100vh'
+            margin={size === 'xsmall' || size === 'small' ? { top: '35%' } : { top: '0%' }}
+            style={styles.container}
             direction={size === 'small' || size === 'xsmall' ? 'column' : 'row'}
             onMouseMove={onMouseMove}
             overflow='hidden'>
@@ -51,6 +62,10 @@ export default () => {
                 TXT_3,
                 TXT_4,
                 TXT_5,
+                TXT_6,
+                TXT_7,
+                TXT_8,
+                TXT_9,
               ]}
             />
             <RightSide

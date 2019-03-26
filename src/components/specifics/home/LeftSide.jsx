@@ -32,14 +32,13 @@ export default ({ texts, width }) => {
       fill='vertical'
       width={width}
       gap='medium'
-      justify='center'
-      margin={{ left: 'xlarge' }}>
+      justify='center'>
       <TitleUnderlined text={[texts[0]]} />
       <Box
         color='dark-2'
         size='large'
         style={styles.descriptionContainer}
-        margin={{ right: 'xsmall' }}>
+        margin={{ right: 'xsmall', left: 'xlarge' }}>
         {texts[1]}
         <Typing
           texts={texts[2]}
@@ -58,7 +57,11 @@ export default ({ texts, width }) => {
         </Paragraph>
       </Box>
       <Blockquote
-        text={texts[4]}
+        address={texts[4]}
+        date={texts[5]}
+        time={texts[6]}
+        prize={texts[7]}
+        bonus={texts[8]}
       />
     </Box>
   );

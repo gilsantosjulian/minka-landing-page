@@ -1,12 +1,22 @@
 import React from 'react';
-import { Paragraph } from 'grommet';
+import { Paragraph, Box } from 'grommet';
 
-export default ({ text }) => {
+const styles = {
+  fontWeight: {
+    fontWeight: 600,
+  },
+};
+
+export default ({ address, date, time, prize, bonus }) => {
   return (
-    <Paragraph
+    <Box
       className='blockquote'
-      color='dark-2'>
-      {text}
-    </Paragraph>
+      margin={{ left: 'xlarge' }}>
+      <Paragraph style={styles.fontWeight} color='dark-2'>{address}</Paragraph>
+      <Paragraph style={styles.fontWeight} color='dark-2'>{date}</Paragraph>
+      <Paragraph style={styles.fontWeight} color='dark-2'>{time}</Paragraph>
+      <Paragraph style={styles.fontWeight} color='dark-2'>{prize}</Paragraph>
+      <Paragraph style={styles.fontWeight} color='dark-2'>{bonus}</Paragraph>
+    </Box>
   );
 };
