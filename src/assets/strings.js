@@ -23,3 +23,25 @@ export const TXT_19 = 'We might need pens and notebooks for the teams to take no
 export const TXT_20 = 'Register Now!'
 export const TXT_21 = 'We will choose the best only, please fill in the form below to register. The Minka team will contact you if you get selected to participate in the hackathon.'
 export const TXT_22 = 'REGISTER NOW';
+//Who
+export const TXT_23 = 'Who';
+export const TXT_24 = 'can apply?';
+export const TXT_25 = 'If you are passionate about technology and:';
+export const TXT_26 = '- Have great knowledge on modern programing concepts';
+export const TXT_27 = '- Have developed and deployed an API build with NodeJs';
+export const TXT_28 = '- Understand and use SQL and NoSQL databases';
+export const TXT_29 = '- Know DevOps and understand agile development concepts';
+export const TXT_30 = '- Have common sense in resolving problems';
+export const TXT_31 = '- Have at least one project setup in GCP or AWS';
+export const TXT_32 = '- Have a Github account';
+export const TXT_33 = 'For UX track, also:';
+export const TXT_34 = '- have 3+ years experience with Ember, React, Vue or Angular';
+export const TXT_35 = '- consider yourself a guru in HTML, CSS and Javascript';
+export const TXT_36 = 'It would be great if you also:';
+export const TXT_37 = '- Have a crypto wallet and 0.0001 units of any crypto currency';
+export const TXT_38 = '- Are a fan of Mr. Robot series and consider yourself a hacker';
+export const TXT_39 = '- Have read Debt by David Graber and Mastering Bitcoin by';
+export const TXT_40 = '- Believe in open source and changing the world with tech';
+export const TXT_41 = '- Know what is a block and what is a chain';
+export const TXT_42 = '- Have deep understanding on what is the internet and what is the web';
+
