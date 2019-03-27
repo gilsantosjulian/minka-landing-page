@@ -3,8 +3,8 @@ import { Box, Image } from 'grommet';
 
 const styles = {
   hackerman: {
-    width: '80%',
-    height: '80%',
+    width: '60%',
+    height: '60%',
   },
 };
 
@@ -14,7 +14,6 @@ export default ({ width, hackerman }) => {
     <Box
       width={width}
       fill='vertical'
-      justify='center'
       align='center'>
       <Image
         src={hackerman}

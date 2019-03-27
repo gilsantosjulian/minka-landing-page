@@ -6,7 +6,7 @@ import useComponentInViewPort from 'hooks/useComponentInViewPort';
 
 export default ({ visibility, items, registerButtonLabel }) => {
   const componentInViewPort = useComponentInViewPort();
-
+  
   const renderItem = (item) => {
     return <MenuItem
       border={componentInViewPort === item.id}
@@ -15,16 +15,6 @@ export default ({ visibility, items, registerButtonLabel }) => {
       id={item.id}
       color='light-1'
     />
-  };
-
-  const renderRegisterButton = () => {
-    return (
-      <Button
-        primary
-        label={registerButtonLabel}
-        margin={'small'}
-      />
-    );
   };
 
   return (
@@ -37,7 +27,11 @@ export default ({ visibility, items, registerButtonLabel }) => {
       justify='center'
       gap='small'>
       {items.map(renderItem)}
-      {renderRegisterButton()}
+      <Button
+        primary
+        label={registerButtonLabel}
+        margin={'small'}
+      />
     </Box>
   );
 };

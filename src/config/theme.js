@@ -18,37 +18,156 @@ export default {
     breakpoints: {
       ...base.global.breakpoints,
       xsmall: {
-        value: 200,
+        value: 400,
+      },
+      small: {
+        value: 576,
       },
       medium: {
+        value: 768,
+      },
+      large: {
+        value: 1110,
+      },
+      xlarge: {
         value: 1200,
       },
     },
+    deviceBreakpoints: {
+      phone: null,
+      tablet: null,
+      computer: null,
+    }
   },
   paragraph: {
+    xsmall: {
+      size: '16px',
+    },
+    small: {
+      size: '16px',
+    },
+    medium: {
+      size: '20px',
+    },
+    large: {
+      size: '20px',
+    },
+    xlarge: {
+      size: '20px',
+    },
     extend: {
       fontFamily: 'Foundry',
-      fontWeight: 600,
+      color: '#2E416D',
     },
   },
   text: {
+    xsmall: {
+      size: '16px',
+    },
+    small: {
+      size: '16px',
+    },
+    medium: {
+      size: '20px',
+    },
+    large: {
+      size: '20px',
+    },
+    xlarge: {
+      size: '20px',
+    },
     extend: {
-      fontFamily: 'Foundry'
+      fontFamily: 'Foundry',
+      fontWeight: 600,
+      color: '#2E416D',
     },
   },
   heading: {
     extend: {
-      fontFamily: 'Foundry'
+      fontFamily: 'Foundry',
+      color: '#2E416D',
+    },
+    1: {
+      xsmall: {
+        size: '40px',
+      },
+      small: {
+        size: '40px',
+      },
+      medium: {
+        size: '60px',
+      },
+      large: {
+        size: '60px',
+      },
+      xlarge: {
+        size: '60px',
+      },
+    },
+    2: {
+      xsmall: {
+        size: '30px',
+      },
+      small: {
+        size: '30px',
+      },
+      medium: {
+        size: '40px',
+      },
+      large: {
+        size: '40px',
+      },
+      xlarge: {
+        size: '40px',
+      },
+    },
+    3: {
+      xsmall: {
+        size: '20px',
+      },
+      small: {
+        size: '20px',
+      },
+      medium: {
+        size: '30px',
+      },
+      large: {
+        size: '30px',
+      },
+      xlarge: {
+        size: '30px',
+      },
     },
   },
   box: {
+    xsmall: {
+      size: '16px',
+    },
+    small: {
+      size: '16px',
+    },
+    medium: {
+      size: '20px',
+    },
+    large: {
+      size: '20px',
+    },
+    xlarge: {
+      size: '20px',
+    },
     extend: {
-      fontFamily: 'Foundry'
+      fontFamily: 'Foundry',
+      color: '#2E416D',
     },
   },
   anchor: {
     hover: {
       textDecoration: 'none',
+    },
+  },
+  button: {
+    border: {
+      radius: '6px',
     },
   },
 };

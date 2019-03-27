@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Button, Paragraph, Heading } from 'grommet';
 
 export default ({ texts }) => {
+  
   return (
     <Box
       wrap

@@ -26,12 +26,15 @@ import {
   TXT_42,
 } from 'assets/strings';
 
+const ID = 'who';
+
 export default () => {
   return (
     <ResponsiveContext.Consumer>
       {(size) => {
         return (
           <Box
+            id={ID}
             direction={size === 'xsmall' || size === 'small' || size === 'medium' ? 'column' : 'row'}>
             <LeftSide
               texts={[

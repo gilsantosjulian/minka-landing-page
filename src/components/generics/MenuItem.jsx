@@ -8,11 +8,11 @@ const styles = {
 };
 
 export default ({ text, id, border, color }) => {
-
   return (
     <Box
       style={styles.container}
       pad='xsmall'
+      height='50%'
       justify='center'
       align='center'
       border={border && { side: 'bottom', color: '#5ABFED', size: 'small' }}>

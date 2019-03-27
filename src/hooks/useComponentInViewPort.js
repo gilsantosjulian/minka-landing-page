@@ -1,12 +1,30 @@
 import { useState, useEffect } from 'react';
 
-const COMPONENTS = ['home', 'about'];
+const OPTIONS = [
+  {
+    component: 'home',
+    options: {
+      threshold: 1
+    },
+  },
+  {
+    component: 'about',
+    options: {
+      threshold: 1
+    },
+  },
+  {
+    component: 'who',
+    options: {
+      threshold: 0.5
+    },
+  },
+];
 let subscriptions = [];
 
 export default () => {
   const [componentInViewPort, setComponentInViewPort] = useState('home');
-  const options = { threshold: 1 };
-
+  
   const onComponentInViewPort = (entries) => {
     const { isIntersecting, target: { id }} = entries[0];
 
@@ -15,7 +33,7 @@ export default () => {
   }
   
   useEffect(() => {
-    COMPONENTS.forEach((component) => {
+    OPTIONS.forEach(({ component, options }) => {
       component = document.getElementById(component);
       const observer = new IntersectionObserver(onComponentInViewPort, options);
       observer.observe(component);

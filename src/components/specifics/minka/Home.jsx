@@ -30,15 +30,15 @@ export default () => {
 
   const getStyleOfHackermanBackground = (size) => {
     const translate = `translate(${x}px, ${y}px) scale(1)`;
-
+    
     return {
       transform: translate,
       zIndex: -1,
       position: 'absolute',
-      width: size === 'small' || size === 'xsmall' ? '100%' : '130%',
-      height: size === 'small' || size === 'xsmall' ? '100%' : '130%',
-      right: size === 'small' || size === 'xsmall' ? '0%' : '-30%',
-      top: size === 'small' || size === 'xsmall' ? '25%' : '-10%',
+      width: size === 'xsmall' || size === 'small'  || size === 'medium' ? '95%' : '150%',
+      height: size === 'xsmall' || size === 'small'  || size === 'medium' ? '95%' : '150%',
+      right: size === 'xsmall' || size === 'small'  || size === 'medium' ? '0%' : '-40%',
+      top: size === 'xsmall' ? '35%' : size === 'small'  || size === 'medium' ? '28%'  : '-30%',
     }
   }
   
@@ -49,11 +49,11 @@ export default () => {
           <Box
             id={ID}
             style={styles.container}
-            direction={size === 'small' || size === 'xsmall' ? 'column' : 'row'}
+            direction={size === 'small' || size === 'xsmall' || size === 'medium' ? 'column' : 'row'}
             onMouseMove={onMouseMove}
             overflow='hidden'>
             <LeftSide
-              width={size === 'small' || size === 'xsmall' ? '100%' : '40%'}
+              width={size === 'small' || size === 'xsmall' || size === 'medium' ? '100%' : '40%'}
               texts={[
                 TXT_1,
                 TXT_2,
@@ -67,7 +67,7 @@ export default () => {
               ]}
             />
             <RightSide
-              width={size === 'small' || size === 'xsmall' ? '100%' : '60%'}
+              width={size === 'small' || size === 'xsmall' || size === 'medium' ? '100%' : '60%'}
               hackerman={require('assets/images/hackerman.svg')}
             />
             <Image
