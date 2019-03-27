@@ -7,10 +7,17 @@ const styles = {
   },
   text: {
     fontWeight: 300,
+    fontSize: 16,
   }
 };
 
 export default ({ text, id, border, color }) => {
+
+  const getBorder = (border) => {
+    if (border)
+    return { side: 'bottom', color: '#5ABFED', size: 'small' } 
+  };
+
   return (
     <Box
       style={styles.container}
@@ -18,11 +25,11 @@ export default ({ text, id, border, color }) => {
       height='50%'
       justify='center'
       align='center'
-      border={border && { side: 'bottom', color: '#5ABFED', size: 'small' }}>
+      border={getBorder(border)}>
       <Anchor
+        color={color}
         href={`#${id}`}
         className='menu-item'
-        color={color}
         size='small'>
         <Text
           style={styles.text}

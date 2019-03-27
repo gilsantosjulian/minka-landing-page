@@ -15,7 +15,7 @@ export const TXT_12 = 'who can apply?';
 export const TXT_13 = 'challenges';
 export const TXT_14 = 'mentors';
 export const TXT_15 = 'agenda';
-export const TXT_16 = 'REGISTER NOW';
+export const TXT_16 = 'Register now';
 //About
 export const TXT_17 = '3 million per track and the chance to work at one of the best fintechs in Latin America.';
 export const TXT_18 = 'We will organize a BBQ on site (meat and other grilled food). Healthy snacks and plenty of coffee.';

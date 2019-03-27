@@ -13,11 +13,11 @@
 }
 
 .line:nth-child(2), .line:nth-child(3) {
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .menu-button-pressed .line:nth-child(1) {
-  transform: translateY(5px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
   background: #2E416D !important;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .menu-button-pressed .line:nth-child(3) {
-  transform: translateY(-5px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
   background: #2E416D !important;
 }
 
