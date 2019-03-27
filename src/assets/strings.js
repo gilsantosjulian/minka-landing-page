@@ -22,7 +22,7 @@ export const TXT_18 = 'We will organize a BBQ on site (meat and other grilled fo
 export const TXT_19 = 'We might need pens and notebooks for the teams to take notes and all the support you need!';
 export const TXT_20 = 'Register Now!'
 export const TXT_21 = 'We will choose the best only, please fill in the form below to register. The Minka team will contact you if you get selected to participate in the hackathon.'
-export const TXT_22 = 'REGISTER NOW';
+export const TXT_22 = 'Register now';
 //Who
 export const TXT_23 = 'Who';
 export const TXT_24 = 'can apply?';
