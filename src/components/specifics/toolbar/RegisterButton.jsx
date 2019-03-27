@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Button, ResponsiveContext } from 'grommet';
+import { Box, Button, ResponsiveContext, Text } from 'grommet';
+
+const styles = {
+  text: {
+    fontWeight: 300,
+    color: '#fff'
+  },
+};
 
 export default ({ text }) => {
   return (
@@ -16,7 +23,7 @@ export default ({ text }) => {
               justify='center'>
               <Button
                 primary
-                label={text}
+                label={<Text style={styles.text} truncate>{text}</Text>}
               />
             </Box>
           );

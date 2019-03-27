@@ -1,10 +1,13 @@
 import React from 'react';
-import { Box, Anchor } from 'grommet';
+import { Box, Anchor, Text } from 'grommet';
 
 const styles = {
   container: {
     cursor: 'pointer',
   },
+  text: {
+    fontWeight: 300,
+  }
 };
 
 export default ({ text, id, border, color }) => {
@@ -21,7 +24,11 @@ export default ({ text, id, border, color }) => {
         className='menu-item'
         color={color}
         size='small'>
-        {text.toUpperCase()}
+        <Text
+          style={styles.text}
+          truncate>
+          {text}
+        </Text>
       </Anchor>
     </Box>
   );
