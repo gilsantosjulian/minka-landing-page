@@ -4,7 +4,7 @@ import { Box, Button, ResponsiveContext, Text } from 'grommet';
 const styles = {
   text: {
     fontWeight: 300,
-    color: '#fff'
+    color: '#FFFFFF',
   },
 };
 
@@ -19,7 +19,6 @@ export default ({ text }) => {
           return (
             <Box
               pad='medium'
-              width='20%'
               justify='center'>
               <Button
                 primary
