@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from 'grommet';
 
-import Cards from 'components/specifics/about/Cards';
-import RegisterSection from 'components/specifics/about/RegisterSection';
+import CardsOfAbout from 'components/specifics/about/CardsOfAbout';
+import RegisterSectionOfAbout from 'components/specifics/about/RegisterSectionOfAbout';
 import { TXT_17, TXT_18, TXT_19, TXT_20, TXT_21, TXT_22 } from 'assets/strings';
 
 const ID = 'about';
@@ -12,7 +12,7 @@ export default () => {
   return (
     <Box
       id={ID}>
-      <Cards
+      <CardsOfAbout
         cupImage={require('assets/images/cup.svg')}
         bbqImage={require('assets/images/bbq.svg')}
         noteImage={require('assets/images/note.svg')}
@@ -20,7 +20,7 @@ export default () => {
         bbqText={TXT_18}
         noteText={TXT_19}
       />
-      <RegisterSection
+      <RegisterSectionOfAbout
         texts={[
           TXT_20,
           TXT_21,
