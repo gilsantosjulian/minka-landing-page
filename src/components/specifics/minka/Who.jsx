@@ -66,14 +66,14 @@ export default () => {
 
   const getTop = (size) => {
     if (size === 'xsmall')
-      return '38%';
+      return '35%';
 
     if (size === 'small')
       return '42%';
 
     if (size === 'medium' ||
       size === 'large')
-      return '33%';
+      return '30%';
 
     return '0%';
   };
@@ -111,8 +111,7 @@ export default () => {
             id={ID}
             direction={getDirection(size)}
             onMouseMove={onMouseMove}
-            pad={{ bottom: 'medium' }}
-          >
+            pad={{ bottom: 'medium' }}>
             <LeftSideOfWho
               texts={[
                 TXT_23,
@@ -137,7 +136,9 @@ export default () => {
                 TXT_42,
               ]}
             />
-            <RightSideOfWho />
+            <RightSideOfWho
+              image={require('assets/images/paracaidas.svg')}
+            />
             <Image
               src={require('assets/images/paracaidas-bg.svg')}
               style={getStyleOfHackermanBackground(size)}
