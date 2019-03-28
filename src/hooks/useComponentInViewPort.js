@@ -19,6 +19,12 @@ const OPTIONS = [
       threshold: 0.5
     },
   },
+  {
+    component: 'mentors',
+    options: {
+      threshold: 0.5
+    },
+  },
 ];
 let subscriptions = [];
 

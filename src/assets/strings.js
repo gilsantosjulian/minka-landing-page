@@ -18,7 +18,7 @@ export const TXT_15 = 'agenda';
 export const TXT_16 = 'Register now';
 //About
 export const TXT_17 = '3 million per track and the chance to work at one of the best fintechs in Latin America.';
-export const TXT_18 = 'We will organize a BBQ on site (meat and other grilled food). Healthy snacks and plenty of coffee.';
+export const TXT_18 = 'We will organize a BBQ on site (grilled food). Healthy snacks and plenty of coffee.';
 export const TXT_19 = 'We might need pens and notebooks for the teams to take notes and all the support you need!';
 export const TXT_20 = 'Register Now!'
 export const TXT_21 = 'We will choose the best only, please fill in the form below to register. The Minka team will contact you if you get selected to participate in the hackathon.'
@@ -44,4 +44,32 @@ export const TXT_39 = '- Have read Debt by David Graber and Mastering Bitcoin by
 export const TXT_40 = '- Believe in open source and changing the world with tech';
 export const TXT_41 = '- Know what is a block and what is a chain';
 export const TXT_42 = '- Have deep understanding on what is the internet and what is the web';
+//Mentors
+export const TXT_43 = 'Our';
+export const TXT_44 = 'mentors';
+export const TXT_45 = 'Tomislav Biscan';
+export const TXT_46 = 'CTO at Minka Inc. and blockchain advisor.';
+export const TXT_47 = 'LinkedIn profile';
+export const TXT_48 = 'https://www.linkedin.com/in/tomislav-biscan-93b6b81';
+export const TXT_49 = 'Leonardo Ayala';
+export const TXT_50 = 'Head of Architecture & Development ACH Colombia.';
+export const TXT_51 = 'LinkedIn profile';
+export const TXT_52 = 'https://www.linkedin.com/in/edgar-leonardo-ayala-paez-62393793';
+export const TXT_53 = 'Domagoj Rozic';
+export const TXT_54 = 'Managing partner at Minka Inc.';
+export const TXT_55 = 'LinkedIn profile';
+export const TXT_56 = 'https://www.linkedin.com/in/rozic';
+export const TXT_57 = 'Reinout Eppinga';
+export const TXT_58 = 'Front-end, UX and Agile specialist.';
+export const TXT_59 = 'LinkedIn profile';
+export const TXT_60 = 'https://www.linkedin.com/in/reinouteppinga';
+
+
+
+
+
+
+
+
+
 

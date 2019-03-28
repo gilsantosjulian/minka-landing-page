@@ -59,9 +59,9 @@ export default () => {
       return '10%';
     if (size === 'medium' ||
         size === 'large')
-      return '0%';
+      return '5%';
 
-    return '-20%';
+    return '-25%';
   };
 
   const getTop = (size) => {
