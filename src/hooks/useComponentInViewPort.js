@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import {
+  useState,
+  useEffect
+} from 'react';
 
-const OPTIONS = [
-  {
+const OPTIONS = [{
     component: 'home',
     options: {
       threshold: 1
@@ -20,6 +22,12 @@ const OPTIONS = [
     },
   },
   {
+    component: 'challenges',
+    options: {
+      threshold: 0.5
+    },
+  },
+  {
     component: 'mentors',
     options: {
       threshold: 0.5
@@ -30,24 +38,38 @@ let subscriptions = [];
 
 export default () => {
   const [componentInViewPort, setComponentInViewPort] = useState('home');
-  
+
   const onComponentInViewPort = (entries) => {
-    const { isIntersecting, target: { id }} = entries[0];
+    const {
+      isIntersecting,
+      target: {
+        id
+      }
+    } = entries[0];
 
     if (isIntersecting)
       setComponentInViewPort(id);
   }
-  
+
   useEffect(() => {
-    OPTIONS.forEach(({ component, options }) => {
+    OPTIONS.forEach(({
+      component,
+      options
+    }) => {
       component = document.getElementById(component);
       const observer = new IntersectionObserver(onComponentInViewPort, options);
       observer.observe(component);
-      subscriptions.push({ observer, component });
+      subscriptions.push({
+        observer,
+        component
+      });
     });
 
     return () => {
-      subscriptions.forEach(({ observer, component }) => {
+      subscriptions.forEach(({
+        observer,
+        component
+      }) => {
         observer.unobserve(component);
       });
       subscriptions = [];

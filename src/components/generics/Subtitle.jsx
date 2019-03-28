@@ -20,6 +20,7 @@ export default ({ text }) => {
             <Heading
               level='3'
               textAlign='center'
+              size={size}
               alignSelf='center'
               style={{ color: '#FFFFFF', maxWidth: getMaxWidth(size) }}>
               {text}

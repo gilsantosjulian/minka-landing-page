@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, ResponsiveContext, Heading } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
 import CardsOfChallenges from 'components/specifics/challenges/CardsOfChallenges';
 import Header from 'components/specifics/challenges/Header';
 

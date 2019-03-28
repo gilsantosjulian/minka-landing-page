@@ -29,7 +29,7 @@ export default () => {
     if (size === 'xsmall' || size === 'small')
       return '120px';
     if (size === 'medium' || size === 'large')
-      return 'xlarge';
+      return '161px';
     return 'large';
   };
 
