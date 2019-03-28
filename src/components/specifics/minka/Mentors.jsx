@@ -5,24 +5,24 @@ import Title from 'components/specifics/mentors/Title';
 import CardsOfMentors from 'components/specifics/mentors/CardsOfMentors';
 
 import {
-  TXT_43,
-  TXT_44,
-  TXT_45,
-  TXT_46,
-  TXT_47,
-  TXT_48,
-  TXT_49,
-  TXT_50,
-  TXT_51,
-  TXT_52,
-  TXT_53,
-  TXT_54,
   TXT_55,
   TXT_56,
   TXT_57,
   TXT_58,
   TXT_59,
   TXT_60,
+  TXT_61,
+  TXT_62,
+  TXT_63,
+  TXT_64,
+  TXT_65,
+  TXT_66,
+  TXT_67,
+  TXT_68,
+  TXT_69,
+  TXT_70,
+  TXT_71,
+  TXT_72,
 } from 'assets/strings';
 
 const ID = 'mentors';
@@ -36,28 +36,28 @@ export default () => {
             id={ID}>
             <Title
               texts={[
-                TXT_43,
-                TXT_44,
+                TXT_55,
+                TXT_56,
               ]}
             />
             <CardsOfMentors
               texts={[
-                TXT_45,
-                TXT_46,
-                TXT_47,
-                TXT_48,
-                TXT_49,
-                TXT_50,
-                TXT_51,
-                TXT_52,
-                TXT_53,
-                TXT_54,
-                TXT_55,
-                TXT_56,
                 TXT_57,
                 TXT_58,
                 TXT_59,
                 TXT_60,
+                TXT_61,
+                TXT_62,
+                TXT_63,
+                TXT_64,
+                TXT_65,
+                TXT_66,
+                TXT_67,
+                TXT_68,
+                TXT_69,
+                TXT_70,
+                TXT_71,
+                TXT_72,
               ]}
             />
           </Box>

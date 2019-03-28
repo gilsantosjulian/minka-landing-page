@@ -36,7 +36,7 @@ const styles = {
 const ID = 'who';
 
 export default () => {
-  const[x, y, onMouseMove] = useMouseMovementEffect();
+  const [x, y, onMouseMove] = useMouseMovementEffect();
 
   const getWidthAndHeight = (size) => {
     if (size === 'xsmall')
@@ -46,7 +46,7 @@ export default () => {
       return '80%';
 
     if (size === 'medium' ||
-        size === 'large')
+      size === 'large')
       return '90%';
 
     return '100%';
@@ -58,7 +58,7 @@ export default () => {
     if (size === 'small')
       return '10%';
     if (size === 'medium' ||
-        size === 'large')
+      size === 'large')
       return '5%';
 
     return '-25%';
@@ -66,13 +66,13 @@ export default () => {
 
   const getTop = (size) => {
     if (size === 'xsmall')
-        return '38%';
+      return '38%';
 
     if (size === 'small')
-        return '42%';
-    
+      return '42%';
+
     if (size === 'medium' ||
-        size === 'large')
+      size === 'large')
       return '33%';
 
     return '0%';
@@ -80,7 +80,7 @@ export default () => {
 
   const getStyleOfHackermanBackground = (size) => {
     const translate = `translate(${x}px, ${y}px) scale(1)`;
-    
+
     return {
       transform: translate,
       zIndex: -1,
@@ -94,11 +94,11 @@ export default () => {
 
   const getDirection = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium' ||
-        size === 'large')
+      size === 'small' ||
+      size === 'medium' ||
+      size === 'large')
       return 'column';
-    
+
     return 'row';
   };
 
@@ -110,7 +110,9 @@ export default () => {
             style={styles.container}
             id={ID}
             direction={getDirection(size)}
-            onMouseMove={onMouseMove}>
+            onMouseMove={onMouseMove}
+            pad={{ bottom: 'medium' }}
+          >
             <LeftSideOfWho
               texts={[
                 TXT_23,

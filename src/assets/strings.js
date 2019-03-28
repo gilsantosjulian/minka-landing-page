@@ -44,32 +44,37 @@ export const TXT_39 = '- Have read Debt by David Graber and Mastering Bitcoin by
 export const TXT_40 = '- Believe in open source and changing the world with tech';
 export const TXT_41 = '- Know what is a block and what is a chain';
 export const TXT_42 = '- Have deep understanding on what is the internet and what is the web';
+//Challenges
+export const TXT_43 = 'Choose';
+export const TXT_44 = 'one of our challenges';
+export const TXT_45 = 'All project should run on the Google Cloud Platform (Firebase included:). Individuals and teams(up to 3 people) can apply for each of the challenges.';
+//Card One
+export const TXT_46 = 'Build your own local currency';
+export const TXT_47 = 'Design, model and build a local community currency using the Minka platform.';
+export const TXT_48 = 'Provide a simple interface that will allow a user to send, receive and check the balance of his account.';
+export const TXT_49 = 'Integrate a payment gateway to allow uploading and downloading money to your currency (vlipco gateway).';
+export const TXT_50 = 'Cash prize 3000 lukas';
+export const TXT_51 = '($3.000.000 de pesos)';
+//Card Two
+export const TXT_52 = 'Make bills payments simple';
+export const TXT_53 = 'Design, model and build a simple app or a chatbot that will allow you to select and pay utility bills in one simple step.';
+export const TXT_54 = 'Integrate Minka API to process the bill payment and to consume funds directly from a (virtual) bank account.';
 //Mentors
-export const TXT_43 = 'Our';
-export const TXT_44 = 'mentors';
-export const TXT_45 = 'Tomislav Biscan';
-export const TXT_46 = 'CTO at Minka Inc. and blockchain advisor.';
-export const TXT_47 = 'LinkedIn profile';
-export const TXT_48 = 'https://www.linkedin.com/in/tomislav-biscan-93b6b81';
-export const TXT_49 = 'Leonardo Ayala';
-export const TXT_50 = 'Head of Architecture & Development ACH Colombia.';
-export const TXT_51 = 'LinkedIn profile';
-export const TXT_52 = 'https://www.linkedin.com/in/edgar-leonardo-ayala-paez-62393793';
-export const TXT_53 = 'Domagoj Rozic';
-export const TXT_54 = 'Managing partner at Minka Inc.';
-export const TXT_55 = 'LinkedIn profile';
-export const TXT_56 = 'https://www.linkedin.com/in/rozic';
-export const TXT_57 = 'Reinout Eppinga';
-export const TXT_58 = 'Front-end, UX and Agile specialist.';
+export const TXT_55 = 'Our';
+export const TXT_56 = 'mentors';
+export const TXT_57 = 'Tomislav Biscan';
+export const TXT_58 = 'CTO at Minka Inc. and blockchain advisor.';
 export const TXT_59 = 'LinkedIn profile';
-export const TXT_60 = 'https://www.linkedin.com/in/reinouteppinga';
-
-
-
-
-
-
-
-
-
-
+export const TXT_60 = 'https://www.linkedin.com/in/tomislav-biscan-93b6b81';
+export const TXT_61 = 'Leonardo Ayala';
+export const TXT_62 = 'Head of Architecture & Development ACH Colombia.';
+export const TXT_63 = 'LinkedIn profile';
+export const TXT_64 = 'https://www.linkedin.com/in/edgar-leonardo-ayala-paez-62393793';
+export const TXT_65 = 'Domagoj Rozic';
+export const TXT_66 = 'Managing partner at Minka Inc.';
+export const TXT_67 = 'LinkedIn profile';
+export const TXT_68 = 'https://www.linkedin.com/in/rozic';
+export const TXT_69 = 'Reinout Eppinga';
+export const TXT_70 = 'Front-end, UX and Agile specialist.';
+export const TXT_71 = 'LinkedIn profile';
+export const TXT_72 = 'https://www.linkedin.com/in/reinouteppinga';
