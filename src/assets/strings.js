@@ -44,4 +44,18 @@ export const TXT_39 = '- Have read Debt by David Graber and Mastering Bitcoin by
 export const TXT_40 = '- Believe in open source and changing the world with tech';
 export const TXT_41 = '- Know what is a block and what is a chain';
 export const TXT_42 = '- Have deep understanding on what is the internet and what is the web';
-
+//Challenges
+export const TXT_43 = 'Choose';
+export const TXT_44 = 'one of our challenges';
+export const TXT_45 = 'All project should run on the Google Cloud Platform (Firebase included:). Individuals and teams(up to 3 people) can apply for each of the challenges.';
+//Card One
+export const TXT_46 = 'Build your own local currency';
+export const TXT_47 = 'Design, model and build a local community currency using the Minka platform.';
+export const TXT_48 = 'Provide a simple interface that will allow a user to send, receive and check the balance of his account.';
+export const TXT_49 = 'Integrate a payment gateway to allow uploading and downloading money to your currency (vlipco gateway).';
+export const TXT_50 = 'Cash prize 3000 lukas';
+export const TXT_51 = '($3.000.000 de pesos)';
+//Card Two
+export const TXT_52 = 'Make bills payments simple';
+export const TXT_53 = 'Design, model and build a simple app or a chatbot that will allow you to select and pay utility bills in one simple step.';
+export const TXT_54 = 'Integrate Minka API to process the bill payment and to consume funds directly from a (virtual) bank account.';
