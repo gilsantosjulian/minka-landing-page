@@ -13,6 +13,16 @@ export default ({ texts }) => {
     return '50%';
   };
 
+  const getAlignSelf = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium' ||
+        size === 'large')
+      return 'center';
+
+    return 'start';
+  };
+
   return (
     <ResponsiveContext.Consumer>
       {(size) => {
@@ -20,6 +30,7 @@ export default ({ texts }) => {
           <Box
             width={getWidht(size)}>
             <Heading
+              alignSelf={getAlignSelf(size)}
               size={size}
               level='3'
               color='accent-2'

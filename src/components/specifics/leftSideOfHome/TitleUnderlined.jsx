@@ -5,8 +5,9 @@ export default ({ text }) => {
 
   const getMargin = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium' ||
+        size === 'small')
+      return { top: 'xlarge', bottom: 'large' };
+    if (size === 'medium' ||
         size === 'large')
       return { top: 'large', bottom: 'medium' };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, ResponsiveContext } from 'grommet';
 
-import LeftSide from 'components/specifics/who/LeftSide';
-import RightSide from 'components/specifics/who/RightSide';
+import LeftSideOfWho from 'components/specifics/who/LeftSideOfWho';
+import RightSideOfWho from 'components/specifics/who/RightSideOfWho';
 import {
   TXT_23,
   TXT_24,
@@ -29,14 +29,25 @@ import {
 const ID = 'who';
 
 export default () => {
+
+  const getDirection = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium' ||
+        size === 'large')
+      return 'column';
+    
+    return 'row';
+  };
+
   return (
     <ResponsiveContext.Consumer>
       {(size) => {
         return (
           <Box
             id={ID}
-            direction={size === 'xsmall' || size === 'small' || size === 'medium' ? 'column' : 'row'}>
-            <LeftSide
+            direction={getDirection(size)}>
+            <LeftSideOfWho
               texts={[
                 TXT_23,
                 TXT_24,
@@ -60,7 +71,7 @@ export default () => {
                 TXT_42,
               ]}
             />
-            <RightSide />
+            <RightSideOfWho />
           </Box>
         );
       }}
