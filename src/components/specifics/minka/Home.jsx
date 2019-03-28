@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Image, ResponsiveContext } from 'grommet';
 
 import LeftSideOfHome from 'components/specifics/home/LeftSideOfHome';
 import RightSideOfHome from 'components/specifics/home/RightSideOfHome';
 import { TXT_1, TXT_2, TXT_3, TXT_4, TXT_5, TXT_6, TXT_7, TXT_8, TXT_9 } from 'assets/strings';
+import useMouseMovementEffect from 'hooks/useMouseMovementEffect';
 
 const styles = {
   container: {
@@ -14,19 +15,7 @@ const styles = {
 const ID = 'home';
 
 export default () => {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const friction = 1 / 30;
-
-  const onMouseMove = (event) => {
-    const mouseX = Math.max(-55, Math.min(100, window.innerWidth / 2 - event.clientX));
-    const mouseY = Math.max(-55, Math.min(100, window.innerHeight / 2 - event.clientY));
-    const followX = (50 * mouseX) / 100
-    const followY = (50 * mouseY) / 100;
-
-    setX( x + ((followX - x) * friction));
-    setY(y + ((followY - y) * friction));
-  };
+  const[x, y, onMouseMove] = useMouseMovementEffect();
 
   const getWidthAndHeight = (size) => {
     if (size === 'xsmall')

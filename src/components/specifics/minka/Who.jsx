@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, ResponsiveContext } from 'grommet';
+import { Box, ResponsiveContext, Image } from 'grommet';
 
 import LeftSideOfWho from 'components/specifics/who/LeftSideOfWho';
 import RightSideOfWho from 'components/specifics/who/RightSideOfWho';
+import useMouseMovementEffect from 'hooks/useMouseMovementEffect';
 import {
   TXT_23,
   TXT_24,
@@ -26,9 +27,70 @@ import {
   TXT_42,
 } from 'assets/strings';
 
+const styles = {
+  container: {
+    position: 'relative',
+  },
+};
+
 const ID = 'who';
 
 export default () => {
+  const[x, y, onMouseMove] = useMouseMovementEffect();
+
+  const getWidthAndHeight = (size) => {
+    if (size === 'xsmall')
+      return '100%';
+
+    if (size === 'small')
+      return '80%';
+
+    if (size === 'medium' ||
+        size === 'large')
+      return '90%';
+
+    return '100%';
+  };
+
+  const getRight = (size) => {
+    if (size === 'xsmall')
+      return '0%';
+    if (size === 'small')
+      return '10%';
+    if (size === 'medium' ||
+        size === 'large')
+      return '0%';
+
+    return '-20%';
+  };
+
+  const getTop = (size) => {
+    if (size === 'xsmall')
+        return '38%';
+
+    if (size === 'small')
+        return '42%';
+    
+    if (size === 'medium' ||
+        size === 'large')
+      return '33%';
+
+    return '0%';
+  };
+
+  const getStyleOfHackermanBackground = (size) => {
+    const translate = `translate(${x}px, ${y}px) scale(1)`;
+    
+    return {
+      transform: translate,
+      zIndex: -1,
+      position: 'absolute',
+      width: getWidthAndHeight(size),
+      height: getWidthAndHeight(size),
+      right: getRight(size),
+      top: getTop(size),
+    }
+  };
 
   const getDirection = (size) => {
     if (size === 'xsmall' ||
@@ -45,8 +107,10 @@ export default () => {
       {(size) => {
         return (
           <Box
+            style={styles.container}
             id={ID}
-            direction={getDirection(size)}>
+            direction={getDirection(size)}
+            onMouseMove={onMouseMove}>
             <LeftSideOfWho
               texts={[
                 TXT_23,
@@ -72,6 +136,10 @@ export default () => {
               ]}
             />
             <RightSideOfWho />
+            <Image
+              src={require('assets/images/paracaidas-bg.svg')}
+              style={getStyleOfHackermanBackground(size)}
+            />
           </Box>
         );
       }}
