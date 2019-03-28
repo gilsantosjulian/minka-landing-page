@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Image, ResponsiveContext } from 'grommet';
 
-import LeftSide from 'components/specifics/home/LeftSide';
-import RightSide from 'components/specifics/home/RightSide';
+import LeftSideOfHome from 'components/specifics/home/LeftSideOfHome';
+import RightSideOfHome from 'components/specifics/home/RightSideOfHome';
 import { TXT_1, TXT_2, TXT_3, TXT_4, TXT_5, TXT_6, TXT_7, TXT_8, TXT_9 } from 'assets/strings';
+import useMouseMovementEffect from 'hooks/useMouseMovementEffect';
 
 const styles = {
   container: {
@@ -14,19 +15,47 @@ const styles = {
 const ID = 'home';
 
 export default () => {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const friction = 1 / 30;
+  const[x, y, onMouseMove] = useMouseMovementEffect();
 
-  const onMouseMove = (event) => {
-    const mouseX = Math.max(-55, Math.min(100, window.innerWidth / 2 - event.clientX));
-    const mouseY = Math.max(-55, Math.min(100, window.innerHeight / 2 - event.clientY));
-    const followX = (50 * mouseX) / 100
-    const followY = (50 * mouseY) / 100;
+  const getWidthAndHeight = (size) => {
+    if (size === 'xsmall')
+      return '100%';
 
-    setX( x + ((followX - x) * friction));
-    setY(y + ((followY - y) * friction));
-  }
+    if (size === 'small')
+      return '80%';
+
+    if (size === 'medium' ||
+        size === 'large')
+      return '90%';
+
+    return '160%';
+  };
+
+  const getRight = (size) => {
+    if (size === 'xsmall')
+      return '0%';
+    if (size === 'small')
+      return '10%';
+    if (size === 'medium' ||
+        size === 'large')
+      return '0%';
+
+    return '-55%';
+  };
+
+  const getTop = (size) => {
+    if (size === 'xsmall')
+        return '33%';
+
+    if (size === 'small')
+        return '38%';
+    
+    if (size === 'medium' ||
+        size === 'large')
+      return '28%';
+
+    return '-35%';
+  };
 
   const getStyleOfHackermanBackground = (size) => {
     const translate = `translate(${x}px, ${y}px) scale(1)`;
@@ -35,12 +64,22 @@ export default () => {
       transform: translate,
       zIndex: -1,
       position: 'absolute',
-      width: size === 'xsmall' || size === 'small'  || size === 'medium' ? '95%' : '150%',
-      height: size === 'xsmall' || size === 'small'  || size === 'medium' ? '95%' : '150%',
-      right: size === 'xsmall' || size === 'small'  || size === 'medium' ? '0%' : '-40%',
-      top: size === 'xsmall' ? '35%' : size === 'small'  || size === 'medium' ? '28%'  : '-30%',
+      width: getWidthAndHeight(size),
+      height: getWidthAndHeight(size),
+      right: getRight(size),
+      top: getTop(size),
     }
-  }
+  };
+
+  const getDirection = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium' ||
+        size === 'large')
+      return 'column';
+    
+    return 'row';
+  };
   
   return (
     <ResponsiveContext.Consumer>
@@ -49,11 +88,10 @@ export default () => {
           <Box
             id={ID}
             style={styles.container}
-            direction={size === 'small' || size === 'xsmall' || size === 'medium' ? 'column' : 'row'}
+            direction={getDirection(size)}
             onMouseMove={onMouseMove}
             overflow='hidden'>
-            <LeftSide
-              width={size === 'small' || size === 'xsmall' || size === 'medium' ? '100%' : '40%'}
+            <LeftSideOfHome
               texts={[
                 TXT_1,
                 TXT_2,
@@ -66,8 +104,7 @@ export default () => {
                 TXT_9,
               ]}
             />
-            <RightSide
-              width={size === 'small' || size === 'xsmall' || size === 'medium' ? '100%' : '60%'}
+            <RightSideOfHome
               hackerman={require('assets/images/hackerman.svg')}
             />
             <Image

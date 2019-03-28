@@ -26,7 +26,7 @@ export default ({ items }) => {
           return (
             <Box
               width='60%'
-              justify='center'
+              justify='end'
               align='center'
               direction='row'
               gap='medium'>

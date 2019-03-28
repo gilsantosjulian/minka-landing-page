@@ -57,7 +57,7 @@ export default {
     },
     extend: {
       fontFamily: 'Foundry',
-      color: '#2E416D',
+      maxWidth: '100%',
     },
   },
   text: {
@@ -79,63 +79,80 @@ export default {
     extend: {
       fontFamily: 'Foundry',
       fontWeight: 600,
-      color: '#2E416D',
     },
   },
   heading: {
     extend: {
       fontFamily: 'Foundry',
-      color: '#2E416D',
     },
-    1: {
-      xsmall: {
-        size: '40px',
+    level: {
+      1: {
+        xsmall: {
+          size: '40px',
+        },
+        small: {
+          size: '40px',
+        },
+        medium: {
+          size: '60px',
+        },
+        large: {
+          size: '60px',
+        },
+        xlarge: {
+          size: '60px',
+        },
       },
-      small: {
-        size: '40px',
+      2: {
+        xsmall: {
+          size: '40px',
+        },
+        small: {
+          size: '40px',
+        },
+        medium: {
+          size: '40px',
+        },
+        large: {
+          size: '40px',
+        },
+        xlarge: {
+          size: '40px',
+        },
       },
-      medium: {
-        size: '60px',
+      3: {
+        xsmall: {
+          size: '30px',
+        },
+        small: {
+          size: '30px',
+        },
+        medium: {
+          size: '25px',
+        },
+        large: {
+          size: '25px',
+        },
+        xlarge: {
+          size: '25px',
+        },
       },
-      large: {
-        size: '60px',
-      },
-      xlarge: {
-        size: '60px',
-      },
-    },
-    2: {
-      xsmall: {
-        size: '30px',
-      },
-      small: {
-        size: '30px',
-      },
-      medium: {
-        size: '40px',
-      },
-      large: {
-        size: '40px',
-      },
-      xlarge: {
-        size: '40px',
-      },
-    },
-    3: {
-      xsmall: {
-        size: '20px',
-      },
-      small: {
-        size: '20px',
-      },
-      medium: {
-        size: '30px',
-      },
-      large: {
-        size: '30px',
-      },
-      xlarge: {
-        size: '30px',
+      4: {
+        xsmall: {
+          size: '20px',
+        },
+        small: {
+          size: '20px',
+        },
+        medium: {
+          size: '30px',
+        },
+        large: {
+          size: '30px',
+        },
+        xlarge: {
+          size: '30px',
+        },
       },
     },
   },
@@ -157,7 +174,6 @@ export default {
     },
     extend: {
       fontFamily: 'Foundry',
-      color: '#2E416D',
     },
   },
   anchor: {

@@ -20,7 +20,6 @@ export default ({ visibility, items, registerButtonLabel }) => {
   return (
     <Box
       width='100%'
-      flex
       className={`responsive-menu-container ${visibility ? 'menu-opened' : ''}`}
       background='dark-2'
       align='center'
