@@ -15,7 +15,7 @@ export default () => {
       <CardsOfAbout
         cupImage={require('assets/images/cup.svg')}
         bbqImage={require('assets/images/bbq.svg')}
-        noteImage={require('assets/images/note.svg')}
+        noteImage={require('assets/images/20.svg')}
         cupText={TXT_17}
         bbqText={TXT_18}
         noteText={TXT_19}
