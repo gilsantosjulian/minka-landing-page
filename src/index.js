@@ -1,3 +1,4 @@
+import 'intersection-observer';
 import register from 'navi-scripts/register';
 import { createBrowserNavigation } from 'navi';
 import React from 'react';

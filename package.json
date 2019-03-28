@@ -15,6 +15,7 @@
     "axios": "^0.18.0",
     "grommet": "^2.5.5",
     "grommet-icons": "^4.2.0",
+    "intersection-observer": "^0.5.1",
     "navi": "0.12.4",
     "navi-scripts": "0.12.4",
     "react": "^16.8.4",
