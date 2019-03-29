@@ -11,7 +11,7 @@ export default ({ texts }) => {
         size === 'large')
       return { top: 'large', bottom: 'medium' };
 
-    return { top: 'medium' };
+    return { top: 'large' };
   };
 
   return (

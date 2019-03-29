@@ -15,7 +15,7 @@ export default () => {
             width={'100%'}
             height={'auto'}
             background='dark-2'
-            pad={{ top: '60px', bottom: '50px' }}
+            pad={{ bottom: '50px' }}
             margin='0 auto'
           >
             <Header />
