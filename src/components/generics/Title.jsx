@@ -13,26 +13,39 @@ const styles = {
 }
 
 export default ({ textOne, textTwo }) => {
+
+  const getMargin = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small')
+      return { top: 'xlarge', bottom: 'large' };
+    if (size === 'medium' ||
+        size === 'large')
+      return { top: 'large', bottom: 'medium' };
+
+    return { vertical: 'large' };
+  };
+
   return (
     <ResponsiveContext.Consumer>
       {(size) => {
         return (
           <Box
-            justify={size === 'xsmall' || size === 'small' ? 'center' : 'start'}
+            fill='horizontal'
+            justify={'center'}
             wrap
             direction='row'
-            alignSelf='center'
-            style={{ marginBottom: '30px' }}
+            margin={getMargin(size)}
           >
             <Heading
-              level='2'
+              level='1'
               style={styles.heading.blueColor}
               margin={{ right: 'xsmall' }}>
               {textOne}
             </Heading>
 
             <Heading
-              level='2'
+              textAlign='center'
+              level='1'
               style={styles.heading.whiteColor}>
               {textTwo}
             </Heading>
