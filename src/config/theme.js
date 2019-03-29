@@ -1,4 +1,6 @@
-import { base } from 'grommet/themes';
+import {
+  base
+} from 'grommet/themes';
 
 export default {
   ...base,
@@ -15,6 +17,11 @@ export default {
       'dark-4': '#4C5D8E',
       'light-1': '#FFFFFF',
     },
+    focus: {
+      border: {
+        color: 'focus'
+      }
+    },
     breakpoints: {
       ...base.global.breakpoints,
       xsmall: {
@@ -23,7 +30,7 @@ export default {
       small: {
         value: 576,
       },
-      medium: {
+      medium: {
         value: 768,
       },
       large: {
