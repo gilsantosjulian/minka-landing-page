@@ -25,12 +25,15 @@ import {
   TXT_91,
 } from 'assets/strings';
 
+const ID = 'agenda';
+
 export default () => {
   return (
     <Box
+      id={ID}
       align='center'
       background='dark-2'
-      pad={{ horizontal: 'xlarge', bottom: 'large' }}>
+      pad={{ horizontal: 'large', bottom: 'large' }}>
       <Title
         textOne={TXT_73}
         textTwo={TXT_74}

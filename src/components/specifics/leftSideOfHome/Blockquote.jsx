@@ -14,7 +14,7 @@ export default ({ address, date, time, prize, bonus }) => {
         return (
           <Box
             className='blockquote'
-            margin={{ left: 'xlarge' }}>
+            margin={{ left: 'xlarge', right: 'large' }}>
             <Paragraph
               size={size}
               color='dark-2'>

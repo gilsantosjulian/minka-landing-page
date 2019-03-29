@@ -25,21 +25,58 @@ export default () => {
     );
   }
 
+  const getDirection = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium')
+      return 'column';
+  
+    return 'row';
+  };
+
+  const getHeight = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium')
+      return '180px';
+  
+    return 'xsmall';
+  };
+
+  const getJustify = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium')
+      return 'start';
+  
+    return 'around';
+  };
+  
+  const getFill = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium')
+      return 'horizontal';
+  
+    return false;
+  };
+
   return (
     <ResponsiveContext.Consumer>
       {(size) => {
         return (
           <Box
-            width='100%'
-            height='xsmall'
-            direction='row'
+            pad='small'
+            height={getHeight(size)}
+            direction={getDirection(size)}
             background='light-1'
-            justify='around'
-            align='center'
-            wrap>
+            justify={getJustify(size)}
+            gap='medium'>
             <Box
-              direction={'row'}
+              fill={getFill(size)}
+              direction='row'
               align='center'
+              justify='center'
               gap='small'>
               {renderLogo(size)}
               <Paragraph
@@ -49,8 +86,10 @@ export default () => {
               </Paragraph>
             </Box>
             <Box
+              fill={getFill(size)}
               direction='row'
               align='center'
+              justify='center'
               gap='xsmall'>
               <Paragraph
                 style={styles.paragraph}>

@@ -33,6 +33,12 @@ const OPTIONS = [{
       threshold: 0.5
     },
   },
+  {
+    component: 'agenda',
+    options: {
+      threshold: 0.5
+    },
+  },
 ];
 let subscriptions = [];
 
