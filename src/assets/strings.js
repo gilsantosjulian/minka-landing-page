@@ -98,3 +98,7 @@ export const TXT_88 = 'Awards Presentation';
 export const TXT_89 = 'Note: There will be a BBQ during the event so you can take breaks to eat anytime.';
 export const TXT_90 = 'Email: info@minka.io';
 export const TXT_91 = 'Address: Calle 93 bis # 19 - 53, Oficina 102, Bogotá';
+//Footer
+export const TXT_92 = 'Copyright © 2019 Minka Inc. Todos los derechos reservados.';
+export const TXT_93 = 'Hecho con';
+export const TXT_94 = 'por';
