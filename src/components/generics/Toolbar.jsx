@@ -8,6 +8,8 @@ import ResponsiveMenu from 'components/specifics/toolbar/ResponsiveMenu';
 import MenuButton from 'components/specifics/toolbar/MenuButton';
 import { TXT_10, TXT_11, TXT_12, TXT_13, TXT_14, TXT_15, TXT_16 } from 'assets/strings';
 
+import PubSub from 'services/pubSub.js';
+
 const styles = {
   container: {
     position: 'fixed',
@@ -45,10 +47,14 @@ const ITEMS = [
 export default () => {
   const [reponsiveMenuVisibility, setReponsiveMenuVisibility] = useState(false);
 
+  PubSub.getInstance().on('onReponsiveMenuVisibility', () => {
+    setReponsiveMenuVisibility(!reponsiveMenuVisibility);
+  })
+
   const onMenuButtonPressed = (visibility) => {
     setReponsiveMenuVisibility(visibility);
   }
-  
+
   return (
     <Box
       width='100%'
