@@ -247,7 +247,7 @@ export default ({ visibility }) => {
 											<Box flex='grow' overflow='auto' pad={{ vertical: 'medium' }}>
 
 												{renderInput('name_id', 'name', 'Full Name', false, 'Elon Musk')}
-												{renderInput('email_id', 'email', 'Email Address', false, 'elonmusk@gmail.com')}
+												{renderInput('email_id', 'email', 'Email Address', false, 'elonmusk@tesla.com')}
 												{renderInput('phone_id', 'phone', 'Mobile Number (Please include the country code)', false, '+54 53567889')}
 												{renderInput('team_id', 'team', "What's your hackathon team name? (Don't mind if you come over alone)", false, 'Tesla')}
 												{

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Anchor, Text } from 'grommet';
+import { Box, Anchor, Text, ResponsiveContext } from 'grommet';
 
 import PubSub from 'services/pubSub.js';
 
@@ -22,25 +22,31 @@ export default ({ text, id, border, color }) => {
   };
 
   return (
-    <Box
-      style={styles.container}
-      pad='xsmall'
-      height='50%'
-      justify='center'
-      align='center'>
-      <Anchor
-        color={color}
-        href={`#${id}`}
-        className='menu-item'
-        size='small'
-        onClick={() => PubSub.getInstance().emit('onReponsiveMenuVisibility')}
-      >
-        <Text
-          style={styles.text}
-          truncate>
-          {text}
-        </Text>
-      </Anchor>
-    </Box>
+    <ResponsiveContext.Consumer>
+    {(size) => {
+      return (
+        <Box
+          style={styles.container}
+          pad='xsmall'
+          height='50%'
+          justify='center'
+          align='center'>
+          <Anchor
+            color={color}
+            href={`#${id}`}
+            className='menu-item'
+            size='small'
+            onClick={() => size === 'xsmall' || size === 'small' || size === 'medium' || size === 'large' ? PubSub.getInstance().emit('onReponsiveMenuVisibility') : null}
+          >
+            <Text
+              style={styles.text}
+              truncate>
+              {text}
+            </Text>
+          </Anchor>
+        </Box>
+      );
+    }}
+    </ResponsiveContext.Consumer>
   );
 }
