@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { Button, ResponsiveContext } from 'grommet';
 
+import PubSub from 'services/pubSub.js';
+
 export default ({ onMenuButtonPressed }) => {
   const [pressed, setPressed] = useState(false);
+
+  PubSub.getInstance().on('onReponsiveMenuVisibility', () => {
+    setPressed(!pressed);
+  })
 
   const onClick = () => {
     onMenuButtonPressed(!pressed);
