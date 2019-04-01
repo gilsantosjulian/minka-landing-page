@@ -25,7 +25,7 @@ export default ({ texts }) => {
             size={size}
             color='dark-2'
             style={styles.descriptionContainer}
-            margin={{ right: 'xsmall', left: 'xlarge' }}>
+            margin={{ left: 'xlarge', right: 'large' }}>
             {texts[0]}
             <Typing
               texts={texts[1]}

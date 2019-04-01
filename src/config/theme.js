@@ -10,6 +10,7 @@ export default {
       ...base.global.colors,
       'accent-1': '#FFD16A',
       'accent-2': '#5ABFED',
+      'accent-3': '#435688',
       'brand': '#2E416D',
       'dark-1': '#29344E',
       'dark-2': '#2E416D',
@@ -152,13 +153,13 @@ export default {
           size: '20px',
         },
         medium: {
-          size: '30px',
+          size: '16px',
         },
         large: {
-          size: '30px',
+          size: '16px',
         },
         xlarge: {
-          size: '30px',
+          size: '16px',
         },
       },
     },
@@ -193,4 +194,24 @@ export default {
       radius: '6px',
     },
   },
+  table: {
+    body: {
+      align: 'center',
+      border: 'bottom',
+      fill: true,
+    },
+    header: {
+      align: 'center',
+      border: 'bottom',
+      pad: {
+        horizontal: 'large',
+        vertical: 'xsmall'
+      },
+      verticalAlign: 'bottom',
+      background: {
+        color: '#435688',
+        opacity: 'strong'
+      }
+    }
+  }
 };
