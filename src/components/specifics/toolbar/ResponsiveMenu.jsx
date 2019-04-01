@@ -4,9 +4,11 @@ import { Box, Button } from 'grommet';
 import MenuItem from 'components/generics/MenuItem';
 import useComponentInViewPort from 'hooks/useComponentInViewPort';
 
+import PubSub from 'services/pubSub.js';
+
 export default ({ visibility, items, registerButtonLabel }) => {
   const componentInViewPort = useComponentInViewPort();
-  
+
   const renderItem = (item) => {
     return <MenuItem
       border={componentInViewPort === item.id}
@@ -30,6 +32,7 @@ export default ({ visibility, items, registerButtonLabel }) => {
         primary
         label={registerButtonLabel}
         margin={'small'}
+        onClick={() => PubSub.getInstance().emit('onVisibilityChange')}
       />
     </Box>
   );

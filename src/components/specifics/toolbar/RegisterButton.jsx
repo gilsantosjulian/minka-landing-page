@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Button, ResponsiveContext, Text } from 'grommet';
-//import Layer from 'components/specifics/registerForm/Layer';
 
 import PubSub from 'services/pubSub.js';
 

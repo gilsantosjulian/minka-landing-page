@@ -17,11 +17,7 @@ export default {
       'dark-3': '#534b77',
       'dark-4': '#4C5D8E',
       'light-1': '#FFFFFF',
-    },
-    focus: {
-      border: {
-        color: 'focus'
-      }
+      'focus': '#5ABFED'
     },
     breakpoints: {
       ...base.global.breakpoints,
