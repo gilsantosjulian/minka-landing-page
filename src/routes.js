@@ -1,7 +1,7 @@
 import { mount, route } from 'navi'
 
 export default mount({
-  '/': route({
+  '/hackathon': route({
     title: 'Minka',
     getView: () => import(`views/public/Minka.jsx`),
   }),
