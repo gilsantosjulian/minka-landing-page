@@ -28,6 +28,7 @@
     "react-dom": "^16.8.4",
     "react-navi": "0.12.4",
     "react-scripts-mdx": "2.1.4",
+    "react-spinners": "^0.5.3",
     "react-typist": "^2.0.5",
     "styled-components": "^4.1.3"
   },

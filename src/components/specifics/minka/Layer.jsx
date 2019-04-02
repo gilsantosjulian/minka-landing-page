@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Notification from 'components/generics/Notification';
+import Spinner from 'components/generics/Spinner';
 
 //Import Grommet components
 import {
@@ -50,6 +51,7 @@ export default ({ visibility }) => {
 	const [errors, setErrors] = useState({ ...initialInputs });
 	const [trigger, setTrigger] = useState(false);
 	const [showNotification, setShowNotification] = useState(false);
+	const [showSpinner, setShowSpinner] = useState(false);
 
 	const ref = firebase.firestore().collection(COLLECTION_NAME);
 
@@ -77,12 +79,15 @@ export default ({ visibility }) => {
 		requireFields();
 
 		if (isErrorsEmpty()) {
+			setShowSpinner(true);
 			ref.add({ ...form, createAt: moment().toDate() })
 				.then(() => {
 					// Clean inputs fields
 					clearForm();
 					if (size === 'xsmall' || size === 'small')
 						PubSub.getInstance().emit('onVisibilityChange')
+					// Hide spinner
+					setShowSpinner(false);
 					// Show notification
 					setShowNotification(true);
 				})
@@ -298,7 +303,15 @@ export default ({ visibility }) => {
 												}
 												{renderInput('minkaHackaton_id', 'minkaHackaton', 'How did you know about Minka Hackathon?', false, 'Friends/Facebook/Linkedin')}
 
+												{showSpinner &&
+													(
+														<Spinner
+															visibility={true}
+														/>
+													)
+												}
 											</Box>
+
 											<Box flex={false} as='footer' align='center'>
 												<Button
 													type='submit'
