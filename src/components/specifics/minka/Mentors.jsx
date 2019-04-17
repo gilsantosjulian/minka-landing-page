@@ -23,6 +23,10 @@ import {
   TXT_70,
   TXT_71,
   TXT_72,
+  TXT_73,
+  TXT_74,
+  TXT_75,
+  TXT_76,
 } from 'assets/strings';
 
 const ID = 'mentors';
@@ -58,6 +62,10 @@ export default () => {
                 TXT_70,
                 TXT_71,
                 TXT_72,
+                TXT_73,
+                TXT_74,
+                TXT_75,
+                TXT_76,
               ]}
             />
           </Box>

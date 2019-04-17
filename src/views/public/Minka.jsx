@@ -8,6 +8,7 @@ import Footer from 'components/generics/Footer.jsx';
 import Home from 'components/specifics/minka/Home.jsx';
 import Layer from 'components/specifics/minka/Layer.jsx';
 import Mentors from 'components/specifics/minka/Mentors.jsx';
+import Sponsors from 'components/specifics/minka/Sponsors.jsx';
 import Toolbar from 'components/generics/Toolbar.jsx';
 import Who from 'components/specifics/minka/Who.jsx';
 
@@ -31,6 +32,7 @@ export default () => {
       <Challenges />
       <Mentors />
       <Agenda />
+      <Sponsors />
       <Footer />
     </Box>
   );

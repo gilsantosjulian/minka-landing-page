@@ -209,5 +209,13 @@ export default {
         opacity: 'strong'
       }
     }
-  }
+  },
+  carousel: {
+    icons: {
+      current: 'none',
+      next: 'none',
+      previous: 'none',
+      // color: undefined,
+    },
+  },
 };
