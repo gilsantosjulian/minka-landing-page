@@ -6,13 +6,10 @@ const styles = {
     blueColor: {
       color: '#5ABFED'
     },
-    whiteColor: {
-      color: '#FFFFFF'
-    }
   }
 }
 
-export default ({ textOne, textTwo }) => {
+export default ({ textOne, textTwo, textTwoColor }) => {
 
   const getMargin = (size) => {
     if (size === 'xsmall' ||
@@ -46,7 +43,7 @@ export default ({ textOne, textTwo }) => {
             <Heading
               textAlign='center'
               level='1'
-              style={styles.heading.whiteColor}>
+              color={textTwoColor || 'light-1'}>
               {textTwo}
             </Heading>
           </Box>
