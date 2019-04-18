@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Box } from 'grommet';
 
-import About from 'components/specifics/minka/About.jsx';
-import Agenda from 'components/specifics/minka/Agenda.jsx';
-import Challenges from 'components/specifics/minka/Challenges.jsx';
+import About from 'components/specifics/hackathon/About.jsx';
+import Agenda from 'components/specifics/hackathon/Agenda.jsx';
+import Challenges from 'components/specifics/hackathon/Challenges.jsx';
 import Footer from 'components/generics/Footer.jsx';
-import Home from 'components/specifics/minka/Home.jsx';
-import Layer from 'components/specifics/minka/Layer.jsx';
-import Mentors from 'components/specifics/minka/Mentors.jsx';
-import Sponsors from 'components/specifics/minka/Sponsors.jsx';
+import Home from 'components/specifics/hackathon/Home.jsx';
+import Layer from 'components/specifics/hackathon/Layer.jsx';
+import Mentors from 'components/specifics/hackathon/Mentors.jsx';
+import Sponsors from 'components/specifics/hackathon/Sponsors.jsx';
 import Toolbar from 'components/generics/Toolbar.jsx';
-import Who from 'components/specifics/minka/Who.jsx';
+import Who from 'components/specifics/hackathon/Who.jsx';
 
 import PubSub from 'services/pubSub.js';
 

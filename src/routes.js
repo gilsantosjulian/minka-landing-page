@@ -2,8 +2,8 @@ import { mount, route } from 'navi'
 
 export default mount({
   '/hackathon': route({
-    title: 'Minka',
-    getView: () => import(`views/public/Minka.jsx`),
+    title: 'Hackathon',
+    getView: () => import(`views/public/Hackathon.jsx`),
   }),
   '/exporter': route({
     title: 'Exporter',
