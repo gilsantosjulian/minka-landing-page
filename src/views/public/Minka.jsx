@@ -4,6 +4,7 @@ import { Box } from 'grommet';
 import Toolbar from 'components/generics/Toolbar.jsx';
 import MinkaHome from 'components/specifics/minka/MinkaHome.jsx';
 import Sponsors from 'components/generics/Sponsors.jsx';
+import MinkaAbout from 'components/specifics/minka/MinkaAbout.jsx';
 
 import { TXT_203, TXT_204, TXT_205, TXT_206, TXT_207, TXT_208 } from 'assets/strings';
 import PubSub from 'services/pubSub.js';
@@ -51,6 +52,7 @@ export default () => {
       />
       <MinkaHome />
       <Sponsors />
+      <MinkaAbout />
     </Box>
   );
 };
