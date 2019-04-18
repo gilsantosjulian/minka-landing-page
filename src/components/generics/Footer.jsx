@@ -2,9 +2,9 @@ import React from 'react';
 import { Box, Image, Paragraph, ResponsiveContext } from 'grommet';
 
 import {
-  TXT_92,
-  TXT_93,
-  TXT_94,
+  TXT_200,
+  TXT_201,
+  TXT_202,
 } from 'assets/strings';
 
 const styles = {
@@ -17,47 +17,47 @@ export default () => {
 
   const renderLogo = (size) => {
     if (size !== 'xsmall' &&
-        size !== 'small')
-    return (
-      <Image
-        src={require('assets/images/minka-simbol.svg')}
-      />
-    );
+      size !== 'small')
+      return (
+        <Image
+          src={require('assets/images/minka-simbol.svg')}
+        />
+      );
   }
 
   const getDirection = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium')
+      size === 'small' ||
+      size === 'medium')
       return 'column';
-  
+
     return 'row';
   };
 
   const getHeight = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium')
+      size === 'small' ||
+      size === 'medium')
       return '180px';
-  
+
     return 'xsmall';
   };
 
   const getJustify = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium')
+      size === 'small' ||
+      size === 'medium')
       return 'start';
-  
+
     return 'around';
   };
-  
+
   const getFill = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium')
+      size === 'small' ||
+      size === 'medium')
       return 'horizontal';
-  
+
     return false;
   };
 
@@ -66,7 +66,7 @@ export default () => {
       {(size) => {
         return (
           <Box
-            pad='small'
+            pad='medium'
             height={getHeight(size)}
             direction={getDirection(size)}
             background='light-1'
@@ -82,7 +82,7 @@ export default () => {
               <Paragraph
                 textAlign='center'
                 style={styles.paragraph}>
-                {TXT_92}
+                {TXT_200}
               </Paragraph>
             </Box>
             <Box
@@ -93,20 +93,20 @@ export default () => {
               gap='xsmall'>
               <Paragraph
                 style={styles.paragraph}>
-                {TXT_93}
+                {TXT_201}
               </Paragraph>
               <Image
                 src={require('assets/images/heart-minka.svg')}
               />
               <Paragraph
                 style={styles.paragraph}>
-                {TXT_94 + ' '}
+                {TXT_202 + ' '}
               </Paragraph>
               <Image
                 src={require('assets/images/branko.svg')}
               />
             </Box>
-        </Box>
+          </Box>
         );
       }}
     </ResponsiveContext.Consumer>

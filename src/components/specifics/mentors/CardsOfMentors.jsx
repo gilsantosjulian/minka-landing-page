@@ -7,9 +7,9 @@ export default ({ texts }) => {
 
   const getDirection = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium' ||
-        size === 'large')
+      size === 'small' ||
+      size === 'medium' ||
+      size === 'large')
       return 'column';
 
     return 'row';
@@ -17,11 +17,11 @@ export default ({ texts }) => {
 
   const getAlign = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium' ||
-        size === 'large')
+      size === 'small' ||
+      size === 'medium' ||
+      size === 'large')
       return 'center';
-      
+
     return 'stretch';
   };
 
@@ -50,6 +50,10 @@ export default ({ texts }) => {
             <CardOfMentors
               image={require('assets/images/rei.svg')}
               texts={texts.slice(12, 16)}
+            />
+            <CardOfMentors
+              image={require('assets/images/edwin.svg')}
+              texts={texts.slice(16, 20)}
             />
           </Box>
         );
