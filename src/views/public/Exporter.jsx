@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Anchor, Box } from 'grommet';
 
-import firebase from 'services/firebase-sdk/firebase';
+import firestore from 'services/firestore';
 const parse = require('json2csv').parse;
 const fields = [
   {
@@ -74,7 +74,7 @@ export default () => {
   }, [])
 
   const getAll = async (collectionName) => {
-    let query = firebase.firestore().collection(collectionName)
+    let query = firestore.collection(collectionName)
     const snaphost = await query.get()
     const result = []
 

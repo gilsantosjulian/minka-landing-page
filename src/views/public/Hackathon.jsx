@@ -8,7 +8,7 @@ import Footer from 'components/generics/Footer.jsx';
 import Home from 'components/specifics/hackathon/Home.jsx';
 import Layer from 'components/specifics/hackathon/Layer.jsx';
 import Mentors from 'components/specifics/hackathon/Mentors.jsx';
-import Sponsors from 'components/specifics/hackathon/Sponsors.jsx';
+import Sponsors from 'components/generics/Sponsors.jsx';
 import Toolbar from 'components/generics/Toolbar.jsx';
 import Who from 'components/specifics/hackathon/Who.jsx';
 
