@@ -6,7 +6,7 @@ import useComponentInViewPort from 'hooks/useComponentInViewPort';
 
 import PubSub from 'services/pubSub.js';
 
-export default ({ visibility, items, registerButtonLabel }) => {
+export default ({ visibility, items, buttonLabel, withButton }) => {
   const componentInViewPort = useComponentInViewPort();
 
   const renderItem = (item) => {
@@ -19,6 +19,18 @@ export default ({ visibility, items, registerButtonLabel }) => {
     />
   };
 
+  const renderButton = () => {
+    if (withButton)
+      return (
+        <Button
+          primary
+          label={buttonLabel}
+          margin={'small'}
+          onClick={() => PubSub.getInstance().emit('onVisibilityChange')}
+        />
+      );
+  }
+
   return (
     <Box
       width='100%'
@@ -28,12 +40,7 @@ export default ({ visibility, items, registerButtonLabel }) => {
       justify='center'
       gap='small'>
       {items.map(renderItem)}
-      <Button
-        primary
-        label={registerButtonLabel}
-        margin={'small'}
-        onClick={() => PubSub.getInstance().emit('onVisibilityChange')}
-      />
+      {renderButton()}
     </Box>
   );
 };

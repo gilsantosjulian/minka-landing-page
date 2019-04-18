@@ -1,18 +1,39 @@
 import React, { useState } from 'react';
 import { Box } from 'grommet';
 
-import About from 'components/specifics/minka/About.jsx';
-import Agenda from 'components/specifics/minka/Agenda.jsx';
-import Challenges from 'components/specifics/minka/Challenges.jsx';
-import Footer from 'components/generics/Footer.jsx';
-import Home from 'components/specifics/minka/Home.jsx';
-import Layer from 'components/specifics/minka/Layer.jsx';
-import Mentors from 'components/specifics/minka/Mentors.jsx';
-import Sponsors from 'components/specifics/minka/Sponsors.jsx';
 import Toolbar from 'components/generics/Toolbar.jsx';
-import Who from 'components/specifics/minka/Who.jsx';
+import MinkaHome from 'components/specifics/minka/MinkaHome.jsx';
+import Sponsors from 'components/generics/Sponsors.jsx';
 
+import { TXT_203, TXT_204, TXT_205, TXT_206, TXT_207, TXT_208 } from 'assets/strings';
 import PubSub from 'services/pubSub.js';
+
+const ITEMS = [
+  {
+    id: 'home',
+    text: TXT_203,
+  },
+  {
+    id: 'about',
+    text: TXT_204,
+  },
+  {
+    id: 'problem',
+    text: TXT_205,
+  },
+  {
+    id: 'services',
+    text: TXT_206,
+  },
+  {
+    id: 'features',
+    text: TXT_207,
+  },
+  {
+    id: 'contact',
+    text: TXT_208,
+  },
+];
 
 export default () => {
   const [visibility, setVisibility] = useState(false);
@@ -24,16 +45,12 @@ export default () => {
   return (
     <Box>
       <Box height='xsmall' />
-      <Toolbar />
-      <Layer visibility={visibility} />
-      <Home />
-      <About />
-      <Who />
-      <Challenges />
-      <Mentors />
-      <Agenda />
+      <Toolbar
+        withButton={false}
+        items={ITEMS}
+      />
+      <MinkaHome />
       <Sponsors />
-      <Footer />
     </Box>
   );
 };

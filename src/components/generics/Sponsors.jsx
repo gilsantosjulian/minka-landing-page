@@ -74,7 +74,7 @@ export default () => {
 						id={ID}
 						overflow='hidden'
 						background='dark-1'
-						pad={{ vertical: 'large', horizontal: 'xlarge' }}
+						pad={{ vertical: 'small', horizontal: 'xlarge' }}
 					>
 						{showCarousel(size)}
 					</Box>

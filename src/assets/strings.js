@@ -8,7 +8,7 @@ export const TXT_6 = 'Date: May 4 and 5';
 export const TXT_7 = 'Time: 8:00 a.m. (May 4) to 5:00 p.m. (May 5)';
 export const TXT_8 = 'Prize: Cash rewards and a job opportunity for hackers who provide the best solution to our challenges.';
 export const TXT_9 = 'Bonus: BBQ, great mentors and great music included.';
-//Toolbar
+//Toolbar hackathon
 export const TXT_10 = 'minka hacks';
 export const TXT_11 = 'about';
 export const TXT_12 = 'who can apply?';
@@ -128,3 +128,10 @@ export const TXT_115 = 'Address: Calle 93 bis # 19 - 53, Oficina 102, Bogotá D.
 export const TXT_200 = 'Copyright © 2019 Minka Inc. Todos los derechos reservados.';
 export const TXT_201 = 'Hecho con';
 export const TXT_202 = 'por';
+//Toolbar minka
+export const TXT_203= 'home';
+export const TXT_204 = 'about';
+export const TXT_205 = 'problem';
+export const TXT_206 = 'services';
+export const TXT_207 = 'features';
+export const TXT_208 = 'contact';

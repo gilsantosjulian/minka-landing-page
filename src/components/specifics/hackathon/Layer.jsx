@@ -19,9 +19,9 @@ import {
 //Import Grommet icons
 import { Close } from 'grommet-icons';
 
-//Import publisher-subscriber and firebase libraries
+//Import publisher-subscriber and firestore libraries
 import PubSub from 'services/pubSub.js';
-import firebase from 'services/firebase-sdk/firebase.js';
+import firestore from 'services/firestore.js';
 import moment from 'moment-timezone';
 
 // set timezone of colombia
@@ -53,7 +53,7 @@ export default ({ visibility }) => {
 	const [showNotification, setShowNotification] = useState(false);
 	const [showSpinner, setShowSpinner] = useState(false);
 
-	const ref = firebase.firestore().collection(COLLECTION_NAME);
+	const ref = firestore.collection(COLLECTION_NAME);
 
 	const onChangeSelect = (key, value) => {
 		form[key] = value;
