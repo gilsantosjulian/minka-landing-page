@@ -63,12 +63,14 @@ export default () => {
       options
     }) => {
       component = document.getElementById(component);
-      const observer = new IntersectionObserver(onComponentInViewPort, options);
-      observer.observe(component);
-      subscriptions.push({
-        observer,
-        component
-      });
+      if (component) {
+        const observer = new IntersectionObserver(onComponentInViewPort, options);
+        observer.observe(component);
+        subscriptions.push({
+          observer,
+          component
+        });
+      }
     });
 
     return () => {

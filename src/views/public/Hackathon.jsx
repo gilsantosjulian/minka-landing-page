@@ -12,7 +12,35 @@ import Sponsors from 'components/specifics/hackathon/Sponsors.jsx';
 import Toolbar from 'components/generics/Toolbar.jsx';
 import Who from 'components/specifics/hackathon/Who.jsx';
 
+import { TXT_10, TXT_11, TXT_12, TXT_13, TXT_14, TXT_15, TXT_16 } from 'assets/strings';
 import PubSub from 'services/pubSub.js';
+
+const ITEMS = [
+  {
+    id: 'home',
+    text: TXT_10,
+  },
+  {
+    id: 'about',
+    text: TXT_11,
+  },
+  {
+    id: 'who',
+    text: TXT_12,
+  },
+  {
+    id: 'challenges',
+    text: TXT_13,
+  },
+  {
+    id: 'mentors',
+    text: TXT_14,
+  },
+  {
+    id: 'agenda',
+    text: TXT_15,
+  },
+];
 
 export default () => {
   const [visibility, setVisibility] = useState(false);
@@ -24,7 +52,11 @@ export default () => {
   return (
     <Box>
       <Box height='xsmall' />
-      <Toolbar />
+      <Toolbar
+        withButton
+        items={ITEMS}
+        buttonLabel={TXT_16}
+      />
       <Layer visibility={visibility} />
       <Home />
       <About />
