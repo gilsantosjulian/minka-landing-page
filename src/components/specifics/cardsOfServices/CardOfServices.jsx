@@ -10,7 +10,7 @@ const styles = {
   },
 };
 
-export default ({ image, question, text }) => {
+export default ({ image, title, text }) => {
 
   const getWidth = (size) => {
     if (size === 'xsmall' ||
@@ -38,8 +38,6 @@ export default ({ image, question, text }) => {
           <Box
             width={getWidth(size)}
             margin={getMargin(size)}
-            elevation='small'
-            round='small'
             align='center'
             justify='center'
             pad='medium'>
@@ -51,7 +49,7 @@ export default ({ image, question, text }) => {
               size={size}
               color='dark-2'
               margin={{ top: 'medium', bottom: 'small' }}>
-              {question}
+              {title}
             </Text>
             <Paragraph
               style={styles.paragraph}
