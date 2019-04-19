@@ -47,14 +47,14 @@ export default () => {
 
   const getTop = (size) => {
     if (size === 'xsmall')
-        return '18%';
+        return '30%';
 
     if (size === 'small')
-        return '25%';
+        return '35%';
     
     if (size === 'medium' ||
         size === 'large')
-      return '15%';
+      return '25%';
 
     return '-5%';
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, ResponsiveContext } from 'grommet';
 
-import TitleUnderlined from 'components/specifics/leftSideOfHome/TitleUnderlined';
+import TitleUnderlined from 'components/generics/TitleUnderlined';
 import Subtitle from 'components/specifics/leftSideOfHome/Subtitle';
 import Blockquote from 'components/specifics/leftSideOfHome/Blockquote';
 
