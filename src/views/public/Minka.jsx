@@ -7,6 +7,7 @@ import Sponsors from 'components/generics/Sponsors.jsx';
 import MinkaAbout from 'components/specifics/minka/MinkaAbout.jsx';
 import Problem from 'components/specifics/minka/Problem.jsx';
 import Services from 'components/specifics/minka/Services.jsx';
+import Features from 'components/specifics/minka/Features.jsx';
 import Footer from 'components/generics/Footer.jsx';
 
 import { TXT_203, TXT_204, TXT_205, TXT_206, TXT_207, TXT_208 } from 'assets/strings';
@@ -58,6 +59,7 @@ export default () => {
       <MinkaAbout />
       <Problem />
       <Services />
+      <Features />
       <Footer />
     </Box>
   );

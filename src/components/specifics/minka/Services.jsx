@@ -18,9 +18,9 @@ export default () => {
           id={ID}
           background={'light-2'}>
           <Title
+            darkBlue
             textOne={texts.txt1}
             textTwo={texts.txt2}
-            textTwoColor='#2E416D'
           />
           <Paragraph
             size={size}
