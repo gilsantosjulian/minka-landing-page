@@ -25,7 +25,7 @@ export default ({ hackerman }) => {
       {(size) => {
         return (
           <Box
-            height='88vh'
+            height='auto'
             width={getWidth(size)}
             align='center'>
             <Image

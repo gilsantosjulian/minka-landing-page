@@ -12,7 +12,7 @@ import PubSub from 'services/pubSub.js';
 const styles = {
   container: {
     position: 'fixed',
-    zIndex: 1,
+    zIndex: 2,
   },
 };
 
