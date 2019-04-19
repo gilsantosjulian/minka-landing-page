@@ -13,7 +13,7 @@ const styles = {
   },
 };
 
-export default () => {
+export default ({ background = 'light-1' }) => {
 
   const renderLogo = (size) => {
     if (size !== 'xsmall' &&
@@ -69,7 +69,7 @@ export default () => {
             pad='medium'
             height={getHeight(size)}
             direction={getDirection(size)}
-            background='light-1'
+            background={background}
             justify={getJustify(size)}
             gap='medium'>
             <Box
