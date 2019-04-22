@@ -3,7 +3,7 @@ export const TXT_1 = 'Minka hacks!';
 export const TXT_2 = 'Bogota!, We are looking for the best ';
 export const TXT_3 = ['techies!', 'hackers!', 'devs!'];
 export const TXT_4 = 'Come and hack the financial services in Colombia by unleashing the power of the Minka Cloud.';
-export const TXT_5 = 'Address: Calle 93 bis # 19 - 53, Oficina 102, Bogotá D.C.'
+export const TXT_5 = 'Address: Calle 93 Bis # 19 - 53, Oficina 102. Bogotá D.C.'
 export const TXT_6 = 'Date: May 4 and 5';
 export const TXT_7 = 'Time: 8:00 a.m. (May 4) to 5:00 p.m. (May 5)';
 export const TXT_8 = 'Prize: Cash rewards and a job opportunity for hackers who provide the best solution to our challenges.';
@@ -54,7 +54,7 @@ export const TXT_47 = 'Design, model and build a local community currency using 
 export const TXT_48 = 'Provide a simple interface that will allow a user to send, receive and check the balance of his account.';
 export const TXT_49 = 'Integrate a payment gateway to allow uploading and downloading money to your currency (vlipco gateway).';
 export const TXT_50 = 'Cash prize 3000 lukas';
-export const TXT_51 = '(COP 3.000.000 de pesos)';
+export const TXT_51 = '(COP 3.000.000)';
 //Card Two
 export const TXT_52 = 'Make bills payments simple';
 export const TXT_53 = 'Design, model and build a simple app or a chatbot that will allow you to select and pay utility bills in one simple step.';
@@ -71,7 +71,7 @@ export const TXT_62 = 'Head of Architecture & Development ACH Colombia.';
 export const TXT_63 = 'LinkedIn profile';
 export const TXT_64 = 'https://www.linkedin.com/in/edgar-leonardo-ayala-paez-62393793';
 export const TXT_65 = 'Domagoj Rozic';
-export const TXT_66 = 'CEO at Minka Inc..';
+export const TXT_66 = 'CEO at Minka Inc.';
 export const TXT_67 = 'LinkedIn profile';
 export const TXT_68 = 'https://www.linkedin.com/in/rozic';
 export const TXT_69 = 'Reinout Eppinga';
@@ -122,8 +122,8 @@ export const TXT_111 = '04:30 pm';
 export const TXT_112 = 'Awards Presentation';
 
 export const TXT_113 = 'Note: There will be a BBQ during the event so you can take breaks to eat anytime.';
-export const TXT_114 = 'Email: info@minka.io';
-export const TXT_115 = 'Address: Calle 93 bis # 19 - 53, Oficina 102, Bogotá D.C.';
+export const TXT_114 = 'Email: admin@minka.io';
+export const TXT_115 = 'Address: Calle 93 Bis # 19 - 53, Oficina 102. Bogotá D.C.';
 //Footer
 export const TXT_200 = 'Copyright © 2019 Minka Inc. Todos los derechos reservados.';
 export const TXT_201 = 'Hecho con';

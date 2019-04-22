@@ -38,9 +38,18 @@ export default () => {
     if (size === 'xsmall' ||
       size === 'small' ||
       size === 'medium')
-      return '180px';
+      return '140px';
 
     return 'xsmall';
+  };
+
+  const getWidth = (size) => {
+    if (size === 'xsmall' ||
+      size === 'small' ||
+      size === 'medium')
+      return 'large';
+
+    return 'small';
   };
 
   const getJustify = (size) => {
@@ -66,7 +75,7 @@ export default () => {
       {(size) => {
         return (
           <Box
-            pad='medium'
+            pad={getWidth(size)}
             height={getHeight(size)}
             direction={getDirection(size)}
             background='light-1'
