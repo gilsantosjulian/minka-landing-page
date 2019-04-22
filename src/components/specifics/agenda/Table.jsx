@@ -56,7 +56,7 @@ export default ({ headers, data, footer }) => {
             size={size}
             textAlign='center'
             level='3'>
-              {data[0]}
+            {data[0]}
           </Heading>
         </Box>
         <Box
@@ -69,7 +69,7 @@ export default ({ headers, data, footer }) => {
             size={size}
             textAlign='center'
             level='3'>
-              {data[1]}
+            {data[1]}
           </Heading>
         </Box>
       </Box>
@@ -78,9 +78,9 @@ export default ({ headers, data, footer }) => {
 
   const getWidth = (size) => {
     if (size === 'xsmall' ||
-        size === 'small' ||
-        size === 'medium' ||
-        size === 'large')
+      size === 'small' ||
+      size === 'medium' ||
+      size === 'large')
       return '100%';
 
     return '65%';
@@ -97,29 +97,36 @@ export default ({ headers, data, footer }) => {
               {headers.map(renderHeader(size))}
             </Box>
             {data.map(renderRow(size))}
-            <Paragraph
-              size={size}
-              textAlign='center'
-              style={styles.heading}
-              margin={{ vertical: 'medium' }}
-              level='3'>
-              {footer[0]}
-            </Paragraph>
-            <Heading
-              size={size}
-              textAlign='center'
-              style={styles.heading}
-              margin={{ top: 'large' }}
-              level='3'>
-              {footer[1]}
-            </Heading>
-            <Heading
-              size={size}
-              textAlign='center'
-              style={styles.heading}
-              level='3'>
-              {footer[2]}
-            </Heading>
+            {
+              footer[0] && footer[1] && footer[2] && (
+                <Box margin={{ vertical: 'medium' }}>
+                  <Paragraph
+                    id={footer[0]}
+                    size={size}
+                    textAlign='center'
+                    style={styles.heading}
+                    margin={{ vertical: 'medium' }}
+                    level='3'>
+                    {footer[0]}
+                  </Paragraph>
+                  <Heading
+                    size={size}
+                    textAlign='center'
+                    style={styles.heading}
+                    margin={{ top: 'large' }}
+                    level='3'>
+                    {footer[1]}
+                  </Heading>
+                  <Heading
+                    size={size}
+                    textAlign='center'
+                    style={styles.heading}
+                    level='3'>
+                    {footer[2]}
+                  </Heading>
+                </Box>
+              )
+            }
           </Box>
         );
       }}

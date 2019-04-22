@@ -14,23 +14,31 @@ export default () => {
 		return 'medium';
 	};
 
+	const renderImage = (logo) => {
+		return (
+			<Box align='center'>
+				<Image fit="contain" height='100px' width='80%' src={require(`assets/images/${logo}`)} />
+			</Box>
+		);
+	};
+
 	const desktopCarousel = (size) => {
 		return (
 			<Carousel
 				fill
 				play={5000}
 			>
-				<Box direction='row' margin={getMargin(size)}>
-					<Image fit="cover" src={require('assets/images/logo-google.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-ach.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-branko.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-luka.svg')} />
+				<Box direction='row' margin={getMargin(size)} justify='between' id='container_image'>
+					{renderImage('logo-branko.svg')}
+					{renderImage('logo-fintech.svg')}
+					{renderImage('logo-google.svg')}
+					{renderImage('logo-luka.svg')}
 				</Box>
-				<Box direction='row' margin={getMargin(size)}>
-					<Image fit="cover" src={require('assets/images/logo-fintech.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-google.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-ach.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-branko.svg')} />
+				<Box direction='row' margin={getMargin(size)} justify='end' id='container_image'>
+					{renderImage('logo-luka.svg')}
+					{renderImage('logo-google.svg')}
+					{renderImage('logo-fintech.svg')}
+					{renderImage('logo-branko.svg')}
 				</Box>
 
 			</Carousel>
@@ -46,11 +54,10 @@ export default () => {
 					fill
 					play={5000}
 				>
-					<Image fit="cover" src={require('assets/images/logo-google.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-ach.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-branko.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-luka.svg')} />
-					<Image fit="cover" src={require('assets/images/logo-fintech.svg')} />
+					{renderImage('logo-google.svg')}
+					{renderImage('logo-branko.svg')}
+					{renderImage('logo-luka.svg')}
+					{renderImage('logo-fintech.svg')}
 				</Carousel >
 			</Box>
 		);
@@ -74,7 +81,7 @@ export default () => {
 						id={ID}
 						overflow='hidden'
 						background='dark-1'
-						pad={{ vertical: 'small', horizontal: 'xlarge' }}
+						pad={{ vertical: 'medium', horizontal: 'xlarge' }}
 					>
 						{showCarousel(size)}
 					</Box>
