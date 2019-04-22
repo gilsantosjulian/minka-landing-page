@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Anchor, Box } from 'grommet';
 
-import firestore from 'services/firestore';
+import requester from 'services/requester';
 const parse = require('json2csv').parse;
 const fields = [
   {
@@ -65,28 +65,14 @@ export default () => {
   const [href, setHref] = useState('');
 
   useEffect(() => {
-    getAll('participants')
-    .then((result) => {
-      const csv = parse(result, {fields});
+    requester
+    .get('/users')
+    .then(({ data }) => {
+      const csv = parse(data, {fields});
       const file = new Blob([csv], { type: 'text/csv' });
       setHref(URL.createObjectURL(file));
     })
   }, [])
-
-  const getAll = async (collectionName) => {
-    let query = firestore.collection(collectionName)
-    const snaphost = await query.get()
-    const result = []
-
-    snaphost.forEach(doc => {
-      result.push({
-        id: doc.id,
-        ...doc.data()
-      })
-    })
-
-    return result
-  }
 
   return (
     <Box

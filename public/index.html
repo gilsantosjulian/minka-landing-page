@@ -26,32 +26,6 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root" tabindex="-1" style="outline: none;">
-      <object type="image/svg+xml" data="%PUBLIC_URL%/minka-simbol.svg" class="logo">
-        Minka
-      </object>
-      <script>
-        var c = document.getElementById("root");
-        for (var i = 0; i < 100; i += 1) {
-          c.insertAdjacentHTML('beforeend', '<div class="t off"></div>');
-        }
-        var timer = setInterval(function () {
-          var again = false;
-          if (document.body.classList.contains('loading')) {
-            var ts = c.querySelectorAll('div.t.off');
-            if (ts.length > 0) {
-              var index = Math.floor(Math.random() * ts.length);
-              ts[index].classList.remove('off');
-              ts[index].classList.add('on');
-              if (ts.length > 1) {
-                again = true;
-              }
-            }
-          }
-          if (! again) {
-            clearInterval(timer);
-          }
-        }, 4000)
-      </script>
     </div>
     <!--
       This HTML file is a template.

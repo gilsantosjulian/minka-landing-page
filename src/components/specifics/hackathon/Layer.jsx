@@ -19,15 +19,13 @@ import {
 //Import Grommet icons
 import { Close } from 'grommet-icons';
 
-//Import publisher-subscriber and firestore libraries
+//Import publisher-subscriber and requester
 import PubSub from 'services/pubSub.js';
-import firestore from 'services/firestore.js';
+import requester from 'services/requester.js';
 import moment from 'moment-timezone';
 
 // set timezone of colombia
 moment.tz.setDefault("America/Bogota");
-
-const COLLECTION_NAME = 'participants';
 
 export default ({ visibility }) => {
 
@@ -52,8 +50,6 @@ export default ({ visibility }) => {
 	const [trigger, setTrigger] = useState(false);
 	const [showNotification, setShowNotification] = useState(false);
 	const [showSpinner, setShowSpinner] = useState(false);
-
-	const ref = firestore.collection(COLLECTION_NAME);
 
 	const onChangeSelect = (key, value) => {
 		form[key] = value;
@@ -80,20 +76,21 @@ export default ({ visibility }) => {
 
 		if (isErrorsEmpty()) {
 			setShowSpinner(true);
-			ref.add({ ...form, createAt: moment().toDate() })
-				.then(() => {
-					// Clean inputs fields
-					clearForm();
-					if (size === 'xsmall' || size === 'small')
-						PubSub.getInstance().emit('onVisibilityChange')
-					// Hide spinner
-					setShowSpinner(false);
-					// Show notification
-					setShowNotification(true);
-				})
-				.catch((error) => {
-					console.error("Error adding document: ", error);
-				});
+			requester
+			.post('/addUser', form)
+			.then(() => {
+				// Clean inputs fields
+				clearForm();
+				if (size === 'xsmall' || size === 'small')
+					PubSub.getInstance().emit('onVisibilityChange')
+				// Hide spinner
+				setShowSpinner(false);
+				// Show notification
+				setShowNotification(true);
+			})
+			.catch((error) => {
+				console.error("Error adding document: ", error);
+			});
 		}
 	};
 

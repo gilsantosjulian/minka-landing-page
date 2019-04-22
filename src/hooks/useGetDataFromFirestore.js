@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import firestore from 'services/firestore';
+import requester from 'services/requester';
 
 export default (document, collection) => {
   const [initialized, setInitialized] = useState(false);
@@ -8,23 +8,9 @@ export default (document, collection) => {
   useEffect(() => {
     if (!initialized) {
       setInitialized(true);
-      
-      firestore
-      .collection('minkaContent')
-      .doc(document)
-      .collection(collection)
-      .get()
-      .then((docs) => {
-        docs.forEach((doc) => {
-          firestore
-          .collection('minkaContent')
-          .doc(document)
-          .collection(collection)
-          .doc(doc.id)
-          .get()
-          .then((response) => setTexts(response.data()))
-        });
-      })
+      requester
+      .get('/minkaContent', { document, collection })
+      .then((response) => setTexts(response.data));
     }
   }, [texts])
 

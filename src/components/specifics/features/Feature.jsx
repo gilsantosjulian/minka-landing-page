@@ -137,8 +137,6 @@ export default ({ firstText, secondText, thirdText, image, background, reverse, 
   return (
     <ResponsiveContext.Consumer>
       {(size) => {
-        console.log(size);
-        
         return (
           <Box
             style={styles.container}
