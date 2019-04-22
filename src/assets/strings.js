@@ -4,8 +4,8 @@ export const TXT_2 = 'Bogota!, We are looking for the best ';
 export const TXT_3 = ['techies!', 'hackers!', 'devs!'];
 export const TXT_4 = 'Come and hack the financial services in Colombia by unleashing the power of the Minka Cloud.';
 export const TXT_5 = 'Address: Calle 93 Bis # 19 - 53, Oficina 102. Bogotá D.C.'
-export const TXT_6 = 'Date: May 4 and 5';
-export const TXT_7 = 'Time: 8:00 a.m. (May 4) to 5:00 p.m. (May 5)';
+export const TXT_6 = 'Date: May 4th and 5th';
+export const TXT_7 = 'Time: 8:00 a.m. (May 4th) to 5:00 p.m. (May 5th)';
 export const TXT_8 = 'Prize: Cash rewards and a job opportunity for hackers who provide the best solution to our challenges.';
 export const TXT_9 = 'Bonus: BBQ, great mentors and great music included.';
 //Toolbar hackathon
@@ -84,7 +84,7 @@ export const TXT_75 = 'LinkedIn profile';
 export const TXT_76 = 'https://www.linkedin.com/in/edwinzacipa';
 //Agenda May 4
 export const TXT_77 = 'Agenda/';
-export const TXT_78 = 'May 4';
+export const TXT_78 = 'May 4th';
 export const TXT_79 = 'Time';
 export const TXT_80 = 'Event';
 export const TXT_81 = '08:00 am';
@@ -107,7 +107,7 @@ export const TXT_97 = '09:00 pm';
 export const TXT_98 = 'Finish & conclusions';
 //Agenda May 5
 export const TXT_99 = 'Agenda/';
-export const TXT_100 = 'May 5';
+export const TXT_100 = 'May 5th';
 export const TXT_101 = 'Time';
 export const TXT_102 = 'Event';
 export const TXT_103 = '08:00 am';
@@ -129,7 +129,7 @@ export const TXT_200 = 'Copyright © 2019 Minka Inc. Todos los derechos reservad
 export const TXT_201 = 'Hecho con';
 export const TXT_202 = 'por';
 //Toolbar minka
-export const TXT_203= 'home';
+export const TXT_203 = 'home';
 export const TXT_204 = 'about';
 export const TXT_205 = 'problem';
 export const TXT_206 = 'services';

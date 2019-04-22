@@ -4,7 +4,8 @@ import { Paragraph, Box, ResponsiveContext } from 'grommet';
 export default ({ address, date, time, prize, bonus }) => {
   const addressSplitted = address.split(':');
   const dateSplitted = date.split(':');
-  const timeSplitted = time.split(':');
+  const timeTitle = time.substring(0, 4);
+  const timeText = time.substring(5, time.length);
   const prizeSplitted = prize.split(':');
   const bonusSplitted = bonus.split(':');
 
@@ -28,7 +29,7 @@ export default ({ address, date, time, prize, bonus }) => {
             <Paragraph
               size={size}
               color='dark-2'>
-              <strong>{timeSplitted[0]}:</strong>{timeSplitted[1]}
+              <strong>{timeTitle}:</strong>{timeText}
             </Paragraph>
             <Paragraph
               size={size}
