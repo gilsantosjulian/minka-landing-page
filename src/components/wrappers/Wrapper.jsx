@@ -6,6 +6,7 @@ import { Grommet } from 'grommet';
 import theme from 'config/theme';
 import NotFound from 'views/public/NotFound.mdx';
 import HorizontalSpinner from 'components/generics/HorizontalSpinner.jsx';
+import Splash from 'components/generics/Splash.jsx';
 
 const styles = {
   container: {
@@ -18,6 +19,7 @@ export default () => {
 
   return (
     <Grommet theme={theme} full style={styles.container}>
+      <Splash />
       <NotFoundBoundary render={() => <NotFound/>}>
         <HorizontalSpinner visibility={loadingRoute}/>
         <MDXProvider>
