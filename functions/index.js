@@ -11,6 +11,7 @@ require('dotenv-safe').config({
 const { getUsers } = require('./routes/getUsers');
 const { addUser } = require('./routes/addUser');
 const { getMinkaContent } = require('./routes/getMinkaContent');
+const { sendEmail } = require('./routes/sendEmail');
 
 const app = express();
 
@@ -25,5 +26,6 @@ require('./middlewares/')(app);
 app.get('/users', getUsers);
 app.post('/addUser', addUser);
 app.get('/minkaContent', getMinkaContent);
+app.post('/sendEmail', sendEmail);
 
 exports.actions = functions.https.onRequest(app);

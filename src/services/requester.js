@@ -3,7 +3,7 @@ import axios from 'axios';
 class Requester {
   constructor() {
     this.requester = axios.create({
-      baseURL: 'https://us-central1-minka-web.cloudfunctions.net/actions',
+      baseURL: 'http://localhost:5000/minka-web/us-central1/actions',
     });
   }
 

@@ -9,7 +9,7 @@ import {
 
 import { FormClose, StatusGood } from 'grommet-icons';
 
-export default ({ text, visibility = false }) => {
+export default ({ text, visibility = false, background = "accent-2" }) => {
 
 	const id = 'notification'
 
@@ -49,7 +49,7 @@ export default ({ text, visibility = false }) => {
 									round="medium"
 									elevation="medium"
 									pad={{ vertical: "xsmall", horizontal: "small" }}
-									background="accent-2"
+									background={background}
 									width={size === 'xsmall' || size === 'small' ? 'large' : 'auto'}
 								>
 									<Box
