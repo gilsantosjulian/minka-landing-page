@@ -54,12 +54,16 @@ export default class ContactForm extends Component {
   };
 
   onVerifyRecaptcha = (token) => {
+    let name = this.state.values.name;
+    let email = this.state.values.email;
+    let formMessage = this.state.values.message;
+    let message = `
+      La persona ${name} con correo electrónico: ${email} 
+      ha enviado un mail con el siguiente mensaje: ${formMessage}`;
     requester
       .post('/sendEmail', {
         token,
-        name: this.state.values.name,
-        from: this.state.values.email,
-        message: this.state.values.message,
+        message: message,
       })
       .then(this.checkData)
       .catch(this.showError);

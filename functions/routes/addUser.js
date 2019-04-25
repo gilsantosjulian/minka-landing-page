@@ -33,12 +33,12 @@ exports.addUser = function (req, res) {
       throw Error('Is not a human');
     })
     .then(() => {
-      return sender({
-        ...body,
+      const data = {
         to: body.email,
         message: message,
         subject: subject,
-      });
+      };
+      return sender(Object.assign(body, data));
     })
     .then(() => res.send(true))
     .catch((error) => res.send(error.message))
