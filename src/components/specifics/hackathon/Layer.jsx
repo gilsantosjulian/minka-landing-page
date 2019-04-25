@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import Notification from 'components/generics/Notification';
+import Recaptcha from 'react-google-invisible-recaptcha';
 import Spinner from 'components/generics/Spinner';
 
 //Import Grommet components
@@ -22,107 +23,110 @@ import { Close } from 'grommet-icons';
 //Import publisher-subscriber and requester
 import PubSub from 'services/pubSub.js';
 import requester from 'services/requester.js';
-import moment from 'moment-timezone';
 
-// set timezone of colombia
-moment.tz.setDefault("America/Bogota");
+const initialInputs = {
+	name: '',
+	email: '',
+	phone: '',
+	team: '',
+	hackathonBefore: '',
+	studies: '',
+	gitAccount: '',
+	nodeExperience: '',
+	programmingLanguages: '',
+	blockchainExperience: '',
+	cloudPlatforms: '',
+	currentlyEmployed: '',
+	minkaHackaton: '',
+};
 
-export default ({ visibility }) => {
+export default class HackathonRegisterForm extends Component {
 
-	const initialInputs = {
-		name: '',
-		email: '',
-		phone: '',
-		team: '',
-		hackathonBefore: '',
-		studies: '',
-		gitAccount: '',
-		nodeExperience: '',
-		programmingLanguages: '',
-		blockchainExperience: '',
-		cloudPlatforms: '',
-		currentlyEmployed: '',
-		minkaHackaton: '',
+	state = {
+		form: { ...initialInputs },
+		errors: { ...initialInputs },
+		trigger: false,
+		showNotification: false,
+		showSpinner: false,
+	};
+
+	onChangeSelect = (key, value) => {
+		let { form, trigger } = this.state;
+		form[key] = value;
+		this.setState({ ...form });
+		if (trigger)
+			this.requireFields();
 	}
 
-	const [form, setValues] = useState({ ...initialInputs });
-	const [errors, setErrors] = useState({ ...initialInputs });
-	const [trigger, setTrigger] = useState(false);
-	const [showNotification, setShowNotification] = useState(false);
-	const [showSpinner, setShowSpinner] = useState(false);
-
-	const onChangeSelect = (key, value) => {
-		form[key] = value;
-		setValues({
-			...form,
-		});
-		if (trigger)
-			requireFields();
-	};
-
-	const onChange = e => {
+	onChange = (e) => {
+		let { form, trigger } = this.state;
 		form[e.target.name] = e.target.value;
-		setValues({
-			...form,
-		});
+		this.setState({ ...form });
 
 		if (trigger)
-			requireFields();
-	};
+			this.requireFields();
+	}
 
-	const onSubmit = (size) => {
-		setTrigger(true);
-		requireFields();
+	onSubmit = (size) => {
+		this.setState({ trigger: true });
+		this.requireFields();
 
-		if (isErrorsEmpty()) {
-			setShowSpinner(true);
-			requester
-			.post('/addUser', form)
+		if (this.isErrorsEmpty()) {
+			this.setState({ showSpinner: true });
+			this.recaptcha.execute();
+			if (size === 'xsmall' || size === 'small')
+				PubSub.getInstance().emit('onVisibilityChange');
+		}
+	}
+
+	onVerifyRecaptcha = (token) => {
+		let { form } = this.state;
+		requester
+			.post('/addUser', { ...form, token: token })
 			.then(() => {
-				// Clean inputs fields
-				clearForm();
-				if (size === 'xsmall' || size === 'small')
-					PubSub.getInstance().emit('onVisibilityChange')
-				// Hide spinner
-				setShowSpinner(false);
-				// Show notification
-				setShowNotification(true);
+				this.clearForm();
+				this.setState({ showSpinner: false });
+				this.setState({ showNotification: true });
+				setTimeout(() => this.setState({ showNotification: false }), 4000);
 			})
+			.then(() => this.recaptcha.reset())
 			.catch((error) => {
 				console.error("Error adding document: ", error);
 			});
-		}
-	};
+	}
 
-	const requireFields = () => {
+	requireFields = () => {
+		let { form, errors } = this.state;
 		for (const key in form) {
 			if (!form[key]) {
-				errors[key] = 'require'
-				setErrors({ ...errors });
+				errors[key] = 'require';
+				this.setState({ ...errors });
 			} else {
-				errors[key] = ''
-				setErrors({ ...errors });
+				errors[key] = '';
+				this.setState({ ...errors });
 			}
 		}
-	};
+	}
 
-	const clearForm = () => {
+	clearForm = () => {
+		let { form } = this.state;
 		for (const key in form) {
 			form[key] = '';
-			setValues({ ...form });
+			this.setState({ ...form });
 		}
-		setTrigger(false);
-	};
+		this.setState({ trigger: false });
+	}
 
-	const isErrorsEmpty = () => {
+	isErrorsEmpty = () => {
+		let { errors } = this.state;
 		for (var key in errors) {
 			if (errors[key] === 'require')
 				return false;
 		}
 		return true;
-	};
+	}
 
-	const renderInput = (id, name, label, textArea, placeHolder) => {
+	renderInput = (id, name, label, textArea, placeHolder) => {
 		return (
 			<FormField
 				htmlFor={id}
@@ -135,22 +139,22 @@ export default ({ visibility }) => {
 							id={id}
 							name={name}
 							placeholder={placeHolder}
-							value={form[name]}
-							onChange={onChange}
+							value={this.state.form[name]}
+							onChange={(e) => this.onChange(e)}
 						/>
 						: <TextInput
 							id={id}
 							name={name}
 							placeholder={placeHolder}
-							value={form[name]}
-							onChange={onChange}
+							value={this.state.form[name]}
+							onChange={(e) => this.onChange(e)}
 						/>
 				}
 
 			</FormField>);
-	};
+	}
 
-	const renderSelectInput = (id, name, label, options) => {
+	renderSelectInput = (id, name, label, options) => {
 		return (
 			<FormField
 				htmlFor={id}
@@ -163,180 +167,188 @@ export default ({ visibility }) => {
 					name={name}
 					multiple={false}
 					options={options}
-					value={form[name]}
+					value={this.state.form[name]}
 					focusIndicator={false}
-					onChange={({ option }) => onChangeSelect(name, option)}
+					onChange={({ option }) => this.onChangeSelect(name, option)}
 				/>
 			</FormField>
 		);
-	};
+	}
 
-	const getLayerPosition = (size) => {
+	getLayerPosition = (size) => {
 		if (size === 'xsmall' || size === 'small' || size === 'medium')
 			return 'center';
 		return 'right';
 	}
 
-	const getFormWidth = (size) => {
+	getFormWidth = (size) => {
 		if (size === 'xsmall' || size === 'small')
 			return 'xlarge';
 		return 'medium';
-	};
+	}
 
-	return (
-		<ResponsiveContext.Consumer>
-			{(size) => {
-				return (
-					<Box
-						width='100%'
-						height='100%'
-						background='dark-1'>
+	render() {
+		return (
+			<ResponsiveContext.Consumer>
+				{(size) => {
+					return (
+						<Box
+							width='100%'
+							height='100%'
+							background='dark-1'>
 
-						{visibility && (
-							<Layer
-								position={getLayerPosition(size)}
-								onClickOutside={() => PubSub.getInstance().emit('onVisibilityChange')}
-								onEsc={() => PubSub.getInstance().emit('onVisibilityChange')}
-							>
-								<Box
-									flex={false}
+							{this.props.visibility && (
+								<Layer
+									position={this.getLayerPosition(size)}
+									onClickOutside={() => PubSub.getInstance().emit('onVisibilityChange')}
+									onEsc={() => PubSub.getInstance().emit('onVisibilityChange')}
 								>
 									<Box
-										alignSelf='end'
+										flex={false}
 									>
-										<Button
-											className='menu-button-pressed'
-											icon={
-												<Close
-													color='brand'
-												/>
-											}
-											onClick={() => PubSub.getInstance().emit('onVisibilityChange')} />
+										<Box
+											alignSelf='end'
+										>
+											<Button
+												className='menu-button-pressed'
+												icon={
+													<Close
+														color='brand'
+													/>
+												}
+												onClick={() => PubSub.getInstance().emit('onVisibilityChange')} />
+										</Box>
+
+										<Box
+											style={{ padding: '10px 25px 0px' }}>
+											<Heading
+												level='2'
+												color='dark-2'
+												size={size}
+											>
+												<span
+													className='title-underlined'
+													style={{ backgroundSize: '100% 0.25em', backgroundPosition: '0 95%' }}
+												>
+													Minka Hackathon
+											</span>
+											</Heading>
+										</Box>
 									</Box>
 
 									<Box
-										style={{ padding: '10px 25px 0px' }}>
-										<Heading
-											level='2'
-											color='dark-2'
-											size={size}
-										>
-											<span
-												className='title-underlined'
-												style={{ backgroundSize: '100% 0.25em', backgroundPosition: '0 95%' }}
+										fill='vertical'
+										overflow='auto'
+										width={this.getFormWidth(size)}
+										pad='medium'
+									//onSubmit={this.onClose}
+									>
+										<Box flex={false} direction='row' justify='between'>
+
+											<Form
+												onSubmit={() => this.onSubmit(size)}
+												errors={this.state.errors}
+												value={this.state.form}
+												height='auto'
 											>
-												Minka Hackathon
-											</span>
-										</Heading>
-									</Box>
-								</Box>
+												<Box flex='grow' overflow='auto' pad={{ vertical: 'medium' }}>
 
-								<Box
-									fill='vertical'
-									overflow='auto'
-									width={getFormWidth(size)}
-									pad='medium'
-								//onSubmit={this.onClose}
-								>
-									<Box flex={false} direction='row' justify='between'>
+													{this.renderInput('name_id', 'name', 'Full Name', false, 'Elon Musk')}
+													{this.renderInput('email_id', 'email', 'Email Address', false, 'elonmusk@tesla.com')}
+													{this.renderInput('phone_id', 'phone', 'Mobile Number (Please include the country code)', false, '+54 53567889')}
+													{this.renderInput('team_id', 'team', "What's your hackathon team name? (Don't mind if you come over alone)", false, 'Tesla')}
+													{
+														this.renderSelectInput(
+															'hackathonBefore_id',
+															'hackathonBefore',
+															'Have you ever attended a hackathon before?',
+															['Yes', 'No'])
+													}
+													{
+														this.renderSelectInput(
+															'studies_id',
+															'studies',
+															'Do you have a BS/MS/ME in Computer Science? Or are you close to finish your studies?',
+															[
+																'Close to finish studies',
+																'Bachelor Degree - BSc',
+																'Master of Science - MSc',
+																'Other',
+															])
+													}
+													{this.renderInput('gitAccount_id', 'gitAccount', "What's your GitHub /Github/Bitbucket account?", false, 'https://github.com/muskelon')}
+													{this.renderInput('nodeExperience_id', 'nodeExperience', "What's your experience working with NodeJS (frontend and/or backend)?", true, 'Write your experience')}
+													{this.renderInput('programmingLanguages_id', 'programmingLanguages', 'Are you familiar with any other programming languages? Which ones?', true, 'Tell us')}
+													{this.renderInput('blockchainExperience_id', 'blockchainExperience', 'What is your experience working with blockchain technologies?', true, 'Write your experience')}
+													{
+														this.renderSelectInput(
+															'cloudPlatforms_id',
+															'cloudPlatforms',
+															'Which cloud platforms are you (very) familiar with?',
+															[
+																'Google Cloud Platform',
+																'AWS',
+																'Microsoft Azure',
+																'Other',
+															])
+													}
+													{
+														this.renderSelectInput(
+															'currentlyEmployed_id',
+															'currentlyEmployed',
+															'Are you currently employed?',
+															[
+																'Yes',
+																'No',
+																'Other',
+															])
+													}
+													{this.renderInput('minkaHackaton_id', 'minkaHackaton', 'How did you know about Minka Hackathon?', false, 'Friends/Facebook/Linkedin')}
 
-										<Form
-											onSubmit={() => onSubmit(size)}
-											errors={errors}
-											value={form}
-											height='auto'
-										>
-											<Box flex='grow' overflow='auto' pad={{ vertical: 'medium' }}>
+													{this.state.showSpinner &&
+														(
+															<Spinner
+																visibility={true}
+															/>
+														)
+													}
+												</Box>
 
-												{renderInput('name_id', 'name', 'Full Name', false, 'Elon Musk')}
-												{renderInput('email_id', 'email', 'Email Address', false, 'elonmusk@tesla.com')}
-												{renderInput('phone_id', 'phone', 'Mobile Number (Please include the country code)', false, '+54 53567889')}
-												{renderInput('team_id', 'team', "What's your hackathon team name? (Don't mind if you come over alone)", false, 'Tesla')}
-												{
-													renderSelectInput(
-														'hackathonBefore_id',
-														'hackathonBefore',
-														'Have you ever attended a hackathon before?',
-														['Yes', 'No'])
-												}
-												{
-													renderSelectInput(
-														'studies_id',
-														'studies',
-														'Do you have a BS/MS/ME in Computer Science? Or are you close to finish your studies?',
-														[
-															'Close to finish studies',
-															'Bachelor Degree - BSc',
-															'Master of Science - MSc',
-															'Other',
-														])
-												}
-												{renderInput('gitAccount_id', 'gitAccount', "What's your GitHub /Github/Bitbucket account?", false, 'https://github.com/muskelon')}
-												{renderInput('nodeExperience_id', 'nodeExperience', "What's your experience working with NodeJS (frontend and/or backend)?", true, 'Write your experience')}
-												{renderInput('programmingLanguages_id', 'programmingLanguages', 'Are you familiar with any other programming languages? Which ones?', true, 'Tell us')}
-												{renderInput('blockchainExperience_id', 'blockchainExperience', 'What is your experience working with blockchain technologies?', true, 'Write your experience')}
-												{
-													renderSelectInput(
-														'cloudPlatforms_id',
-														'cloudPlatforms',
-														'Which cloud platforms are you (very) familiar with?',
-														[
-															'Google Cloud Platform',
-															'AWS',
-															'Microsoft Azure',
-															'Other',
-														])
-												}
-												{
-													renderSelectInput(
-														'currentlyEmployed_id',
-														'currentlyEmployed',
-														'Are you currently employed?',
-														[
-															'Yes',
-															'No',
-															'Other',
-														])
-												}
-												{renderInput('minkaHackaton_id', 'minkaHackaton', 'How did you know about Minka Hackathon?', false, 'Friends/Facebook/Linkedin')}
+												<Box flex={false} as='footer' align='center'>
+													<Button
+														type='submit'
+														label='Send'
+														primary
+													/>
+												</Box>
+											</Form>
 
-												{showSpinner &&
-													(
-														<Spinner
-															visibility={true}
-														/>
-													)
-												}
-											</Box>
-
-											<Box flex={false} as='footer' align='center'>
-												<Button
-													type='submit'
-													label='Send'
-													primary
-												/>
-											</Box>
-										</Form>
+										</Box>
 
 									</Box>
+								</Layer>
+							)}
 
-								</Box>
-							</Layer>
-						)}
+							{this.state.showNotification &&
+								(
+									<Notification
+										visibility={true}
+										text='User registered successfully!'
+									/>
+								)
+							}
+							<Recaptcha
+								ref={(ref) => this.recaptcha = ref}
+								sitekey={'6LdT158UAAAAAM-PEFOsJy9_fFAd0Jfg6-qRXMH2'}
+								onResolved={this.onVerifyRecaptcha}
+							/>
 
-						{showNotification &&
-							(
-								<Notification
-									visibility={true}
-									text='User registered successfully!'
-								/>
-							)
-						}
+						</Box >
+					);
 
-					</Box >
-				);
+				}}
+			</ResponsiveContext.Consumer>
+		);
+	}
 
-			}}
-		</ResponsiveContext.Consumer>
-	);
-};
+}

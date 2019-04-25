@@ -22,8 +22,8 @@ const styles = {
 
 export default class ContactForm extends Component {
   state = {
-    values: {...keys},
-    errors: {...keys},
+    values: { ...keys },
+    errors: { ...keys },
     text: '',
     visibility: false,
     background: '',
@@ -55,14 +55,14 @@ export default class ContactForm extends Component {
 
   onVerifyRecaptcha = (token) => {
     requester
-    .post('/sendEmail', {
-      token,
-      name: this.state.values.name,
-      from: this.state.values.email,
-      message: this.state.values.message,
-    })
-    .then(this.checkData)
-    .catch(this.showError);
+      .post('/sendEmail', {
+        token,
+        name: this.state.values.name,
+        from: this.state.values.email,
+        message: this.state.values.message,
+      })
+      .then(this.checkData)
+      .catch(this.showError);
   };
 
   checkData = ({ data }) => {
@@ -70,7 +70,7 @@ export default class ContactForm extends Component {
     if (data.errorMessage)
       this.showNotification('An error ocurred', 'status-critical');
     else {
-      this.setState({ values: keys});
+      this.setState({ values: keys });
       this.showNotification('Your email has been sent');
     }
 
@@ -89,11 +89,11 @@ export default class ContactForm extends Component {
     this.setState({ text, background, visibility: true });
   };
 
-  onChange = (key) => ({ target: { value }}) => {
+  onChange = (key) => ({ target: { value } }) => {
     this.setState({ values: { ...this.state.values, [key]: value } }, () => console.log(this.state.values)
     );
   };
-  
+
   render() {
     return (
       <Box
@@ -152,7 +152,7 @@ export default class ContactForm extends Component {
         <Recaptcha
           ref={(ref) => this.recaptcha = ref}
           sitekey={'6LdT158UAAAAAM-PEFOsJy9_fFAd0Jfg6-qRXMH2'}
-          onResolved={this.onVerifyRecaptcha}/>
+          onResolved={this.onVerifyRecaptcha} />
       </Box>
     );
   };

@@ -1,0 +1,28 @@
+[debug] [2019-04-24T22:52:23.086Z] ----------------------------------------------------------------------
+[debug] [2019-04-24T22:52:23.089Z] Command:       /Users/julianandresgilsantos/.nvm/versions/node/v10.9.0/bin/node /Users/julianandresgilsantos/.nvm/versions/node/v10.9.0/bin/firebase serve --only functions
+[debug] [2019-04-24T22:52:23.089Z] CLI Version:   6.5.0
+[debug] [2019-04-24T22:52:23.089Z] Platform:      darwin
+[debug] [2019-04-24T22:52:23.089Z] Node Version:  v10.9.0
+[debug] [2019-04-24T22:52:23.090Z] Time:          Wed Apr 24 2019 17:52:23 GMT-0500 (Colombia Standard Time)
+[debug] [2019-04-24T22:52:23.090Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-04-24T22:52:23.117Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-04-24T22:52:23.117Z] > authorizing via signed-in user
+[debug] [2019-04-24T22:52:23.117Z] [iam] checking project minka-web for permissions ["firebase.projects.get"]
+[debug] [2019-04-24T22:52:23.120Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/minka-web:testIamPermissions  
+
+[debug] [2019-04-24T22:52:24.916Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-24T22:52:24.918Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/minka-web  
+ 
+[debug] [2019-04-24T22:52:25.527Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/julianandresgilsantos/projects/landing-page-hackathon'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-04-24T22:52:27.205Z] Fetching environment
+[debug] [2019-04-24T22:52:27.222Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/841921195572:getServerAppConfig  
+ 
+[debug] [2019-04-24T22:52:27.552Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-24T22:52:27.553Z] Starting @google-cloud/functions-emulator
+[debug] [2019-04-24T22:52:29.669Z] Parsing function triggers
+[info] ✔  functions: actions: http://localhost:5000/minka-web/us-central1/actions
