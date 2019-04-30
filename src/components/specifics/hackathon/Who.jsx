@@ -30,6 +30,8 @@ import {
 const styles = {
   container: {
     position: 'relative',
+    minHeight: '80vh',
+    height: 'auto',
   },
 };
 
@@ -38,42 +40,22 @@ const ID = 'who';
 export default () => {
   const [x, y, onMouseMove] = useMouseMovementEffect();
 
-  const getWidthAndHeight = (size) => {
-    if (size === 'xsmall')
-      return '100%';
-
-    if (size === 'small')
-      return '80%';
-
-    if (size === 'medium' ||
-      size === 'large')
-      return '90%';
-
-    return '100%';
-  };
-
-  const getRight = (size) => {
-    if (size === 'xsmall')
+  const getLeft = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium' ||
+        size === 'large')
       return '0%';
-    if (size === 'small')
-      return '10%';
-    if (size === 'medium' ||
-      size === 'large')
-      return '5%';
 
-    return '-25%';
+    return '25%';
   };
 
   const getTop = (size) => {
-    if (size === 'xsmall')
-      return '35%';
-
-    if (size === 'small')
-      return '42%';
-
-    if (size === 'medium' ||
-      size === 'large')
-      return '30%';
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium' ||
+        size === 'large')
+      return '25%';
 
     return '0%';
   };
@@ -85,10 +67,10 @@ export default () => {
       transform: translate,
       zIndex: -1,
       position: 'absolute',
-      width: getWidthAndHeight(size),
-      height: getWidthAndHeight(size),
-      right: getRight(size),
+      width: '100%',
+      height: '100%',
       top: getTop(size),
+      left: getLeft(size),
     }
   };
 
@@ -107,6 +89,7 @@ export default () => {
       {(size) => {
         return (
           <Box
+            overflow='hidden'
             style={styles.container}
             id={ID}
             direction={getDirection(size)}

@@ -4,7 +4,6 @@ import { Box, Image, ResponsiveContext } from 'grommet';
 const styles = {
   paracaidas: {
     width: '100%',
-    height: '100%',
   },
 };
 
@@ -26,9 +25,9 @@ export default ({ image }) => {
         return (
           <Box
             width={getWidth(size)}
-            fill='vertical'
+            height='100%'
             align='center'
-            margin='large'>
+            justify='center'>
             <Image
               src={image}
               style={styles.paracaidas} />

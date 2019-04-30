@@ -3,8 +3,7 @@ import { Box, Image, ResponsiveContext } from 'grommet';
 
 const styles = {
   hackerman: {
-    width: '70%',
-    height: '70%',
+    width: '90%',
   },
 };
 
@@ -26,8 +25,9 @@ export default ({ hackerman }) => {
         return (
           <Box
             width={getWidth(size)}
-            fill='vertical'
-            align='center'>
+            height='100%'
+            align='center'
+            justify='center'>
             <Image
               src={hackerman}
               style={styles.hackerman} />

@@ -9,6 +9,8 @@ import useMouseMovementEffect from 'hooks/useMouseMovementEffect';
 const styles = {
   container: {
     position: 'relative',
+    minHeight: '80vh',
+    height: 'auto',
   },
 };
 
@@ -17,44 +19,24 @@ const ID = 'home';
 export default () => {
   const[x, y, onMouseMove] = useMouseMovementEffect();
 
-  const getWidthAndHeight = (size) => {
-    if (size === 'xsmall')
-      return '100%';
-
-    if (size === 'small')
-      return '80%';
-
-    if (size === 'medium' ||
-        size === 'large')
-      return '90%';
-
-    return '160%';
-  };
-
-  const getRight = (size) => {
-    if (size === 'xsmall')
-      return '0%';
-    if (size === 'small')
-      return '10%';
-    if (size === 'medium' ||
+  const getLeft = (size) => {
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium' ||
         size === 'large')
       return '0%';
 
-    return '-55%';
+    return '25%';
   };
 
   const getTop = (size) => {
-    if (size === 'xsmall')
-        return '33%';
-
-    if (size === 'small')
-        return '38%';
-    
-    if (size === 'medium' ||
+    if (size === 'xsmall' ||
+        size === 'small' ||
+        size === 'medium' ||
         size === 'large')
-      return '28%';
+      return '25%';
 
-    return '-35%';
+    return '0%';
   };
 
   const getStyleOfHackermanBackground = (size) => {
@@ -64,10 +46,10 @@ export default () => {
       transform: translate,
       zIndex: -1,
       position: 'absolute',
-      width: getWidthAndHeight(size),
-      height: getWidthAndHeight(size),
-      right: getRight(size),
+      width: '100%',
+      height: '100%',
       top: getTop(size),
+      left: getLeft(size),
     }
   };
 
