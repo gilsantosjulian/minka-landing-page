@@ -54,7 +54,7 @@ export default () => {
 					fill
 					play={5000}
 				>
-					{renderImage('logo-ach')}
+					{renderImage('logo-ach.svg')}
 					{renderImage('logo-google.svg')}
 					{renderImage('logo-branko.svg')}
 					{renderImage('logo-luka.svg')}
