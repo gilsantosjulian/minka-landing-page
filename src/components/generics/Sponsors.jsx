@@ -36,9 +36,9 @@ export default () => {
 				</Box>
 				<Box direction='row' margin={getMargin(size)} justify='end' id='container_image'>
 					{renderImage('logo-luka.svg')}
+					{renderImage('logo-ach.svg')}
 					{renderImage('logo-google.svg')}
 					{renderImage('logo-fintech.svg')}
-					{renderImage('logo-branko.svg')}
 				</Box>
 
 			</Carousel>
@@ -54,6 +54,7 @@ export default () => {
 					fill
 					play={5000}
 				>
+					{renderImage('logo-ach')}
 					{renderImage('logo-google.svg')}
 					{renderImage('logo-branko.svg')}
 					{renderImage('logo-luka.svg')}
