@@ -32,7 +32,7 @@ export default () => {
 					{renderImage('logo-branko.svg')}
 					{renderImage('logo-fintech.svg')}
 					{renderImage('logo-google.svg')}
-					{renderImage('logo-luka.svg')}
+					{renderImage('logo-ach.svg')}
 				</Box>
 				<Box direction='row' margin={getMargin(size)} justify='end' id='container_image'>
 					{renderImage('logo-luka.svg')}
