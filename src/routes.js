@@ -1,4 +1,7 @@
-import { mount, route } from 'navi'
+import {
+  mount,
+  route
+} from 'navi'
 
 export default mount({
   '/': route({
@@ -12,5 +15,9 @@ export default mount({
   '/exporter': route({
     title: 'Exporter',
     getView: () => import(`views/public/Exporter.jsx`),
+  }),
+  '/qrform': route({
+    title: 'Exporter',
+    getView: () => import(`views/public/QRForm.jsx`),
   })
 });

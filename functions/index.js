@@ -10,6 +10,7 @@ require('dotenv-safe').config({
 
 const { getUsers } = require('./routes/getUsers');
 const { addUser } = require('./routes/addUser');
+const { addTransfersYaInterestings } = require('./routes/addTransfersYaInterestings');
 const { getMinkaContent } = require('./routes/getMinkaContent');
 const { sendEmail } = require('./routes/sendEmail');
 
@@ -25,6 +26,7 @@ require('./middlewares/')(app);
 // Routes
 app.get('/users', getUsers);
 app.post('/addUser', addUser);
+app.post('/addTransfersYaInterestings', addTransfersYaInterestings);
 app.get('/minkaContent', getMinkaContent);
 app.post('/sendEmail', sendEmail);
 
