@@ -1,78 +1,58 @@
-import React from 'react';
-import { Box, Image, Paragraph, ResponsiveContext } from 'grommet';
+import React from "react";
+import { Box, Image, Paragraph, ResponsiveContext } from "grommet";
 
-import {
-  TXT_200,
-  TXT_201,
-  TXT_202,
-} from 'assets/strings';
+import { TXT_200, TXT_201, TXT_202 } from "assets/strings";
 
 const styles = {
   paragraph: {
-    fontSize: 16,
-  },
+    fontSize: 16
+  }
 };
 
-export default ({ background = 'light-1' }) => {
-
-  const renderLogo = (size) => {
-    if (size !== 'xsmall' &&
-      size !== 'small')
-      return (
-        <Image
-          src={require('assets/images/minka-simbol.svg')}
-        />
-      );
-  }
-
-  const getDirection = (size) => {
-    if (size === 'xsmall' ||
-      size === 'small' ||
-      size === 'medium')
-      return 'column';
-
-    return 'row';
+export default ({ background = "light-1" }) => {
+  const renderLogo = size => {
+    if (size !== "xsmall" && size !== "small")
+      return <Image src={require("assets/images/minka-simbol.svg")} />;
   };
 
-  const getHeight = (size) => {
-    if (size === 'xsmall' ||
-      size === 'small' ||
-      size === 'medium')
-      return '140px';
+  const getDirection = size => {
+    if (size === "xsmall" || size === "small" || size === "medium")
+      return "column";
 
-    return 'xsmall';
+    return "row";
   };
 
-  const getWidth = (size) => {
-    if (size === 'xsmall' ||
-      size === 'small' ||
-      size === 'medium')
-      return 'large';
+  const getHeight = size => {
+    if (size === "xsmall" || size === "small" || size === "medium")
+      return "140px";
 
-    return 'small';
+    return "xsmall";
   };
 
-  const getJustify = (size) => {
-    if (size === 'xsmall' ||
-      size === 'small' ||
-      size === 'medium')
-      return 'start';
+  const getWidth = size => {
+    if (size === "xsmall" || size === "small" || size === "medium")
+      return "large";
 
-    return 'around';
+    return "small";
   };
 
-  const getFill = (size) => {
-    if (size === 'xsmall' ||
-      size === 'small' ||
-      size === 'medium')
-      return 'horizontal';
+  const getJustify = size => {
+    if (size === "xsmall" || size === "small" || size === "medium")
+      return "start";
+
+    return "around";
+  };
+
+  const getFill = size => {
+    if (size === "xsmall" || size === "small" || size === "medium")
+      return "horizontal";
 
     return false;
   };
 
   return (
     <ResponsiveContext.Consumer>
-      {(size) => {
+      {size => {
         return (
           <Box
             pad={getWidth(size)}
@@ -80,44 +60,35 @@ export default ({ background = 'light-1' }) => {
             direction={getDirection(size)}
             background={background}
             justify={getJustify(size)}
-            gap='medium'>
+            gap="medium"
+          >
             <Box
               fill={getFill(size)}
-              direction='row'
-              align='center'
-              justify='center'
-              gap='small'>
+              direction="row"
+              align="center"
+              justify="center"
+              gap="small"
+            >
               {renderLogo(size)}
-              <Paragraph
-                textAlign='center'
-                style={styles.paragraph}>
+              <Paragraph textAlign="center" style={styles.paragraph}>
                 {TXT_200}
               </Paragraph>
             </Box>
             <Box
               fill={getFill(size)}
-              direction='row'
-              align='center'
-              justify='center'
-              gap='xsmall'>
-              <Paragraph
-                style={styles.paragraph}>
-                {TXT_201}
-              </Paragraph>
-              <Image
-                src={require('assets/images/heart-minka.svg')}
-              />
-              <Paragraph
-                style={styles.paragraph}>
-                {TXT_202 + ' '}
-              </Paragraph>
-              <Image
-                src={require('assets/images/branko.svg')}
-              />
+              direction="row"
+              align="center"
+              justify="center"
+              gap="xsmall"
+            >
+              <Paragraph style={styles.paragraph}>{TXT_201}</Paragraph>
+              <Image src={require("assets/images/heart-minka.svg")} />
+              <Paragraph style={styles.paragraph}>{TXT_202 + " "}</Paragraph>
+              <Image src={require("assets/images/branko.svg")} />
             </Box>
           </Box>
         );
       }}
     </ResponsiveContext.Consumer>
   );
-}
+};

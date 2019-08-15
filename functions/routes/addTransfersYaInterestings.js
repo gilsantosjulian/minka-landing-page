@@ -6,13 +6,13 @@ const {
   sender
 } = require('../utils/sender');
 
-const imgPath = 'https://firebasestorage.googleapis.com/v0/b/minka-web.appspot.com/o/mail.png?alt=media&token=30729b35-50b3-49cd-bde9-9b4338077e55';
-const subject = 'Minka Hackathon'
-const message = `<img src="${imgPath}" alt="Confirmation - Minka Hackathon" >`;
+const imgPath = 'https://firebasestorage.googleapis.com/v0/b/minka-web.appspot.com/o/mailing%20(1).jpg?alt=media&token=22427af9-02cd-4224-92bd-00078f252e3d';
+const subject = 'Transferencias YA'
+const message = `Gracias por tu registro, haz entrado en nuestra lista de espera y pronto 
+mejoraremos la forma en que interactúas con el dinero ¡Te estaremos contactando! 
+<img src="${imgPath}" alt="Confirmation - Transferencias YA" >`;
 
 exports.addTransfersYaInterestings = function (req, res) {
-  console.log('ENTRA =================>');
-
   const body = Object.assign(
     req.body, {
       createAt: firebase.firestore.FieldValue.serverTimestamp()

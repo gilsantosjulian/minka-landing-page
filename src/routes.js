@@ -16,8 +16,8 @@ export default mount({
     title: 'Exporter',
     getView: () => import(`views/public/Exporter.jsx`),
   }),
-  '/qrform': route({
-    title: 'Exporter',
+  '/form': route({
+    title: 'Form',
     getView: () => import(`views/public/QRForm.jsx`),
   })
 });

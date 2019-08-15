@@ -5,35 +5,38 @@ import Spinner from "components/generics/Spinner";
 
 //Import Grommet components
 import {
+  Anchor,
   Box,
   Button,
-  Layer,
+  CheckBox,
   Form,
   FormField,
   Image,
   Heading,
+  Paragraph,
   ResponsiveContext,
   Select,
   TextInput,
   TextArea
 } from "grommet";
 
-//Import Grommet icons
-import { Close } from "grommet-icons";
-
 //Import publisher-subscriber and requester
 import PubSub from "services/pubSub.js";
 import requester from "services/requester.js";
 
 const initialInputs = {
-  name: "",
+  first_name: "",
+  last_name: "",
   email: "",
-  phone: ""
+  phone: "",
+  bank: ""
+  // terms: false
 };
 
+const FORM_TEXT =
+  "Diligencia el siguiente formulario para que hagas parte de os primeros colombianos que podrán transferir su dinero de forma rápida, fácil, segura y a bajo costo:";
+
 let banks = [
-  "Movvi",
-  "Nequi",
   "Movii",
   "Nequi",
   "DaviPlata",
@@ -68,7 +71,8 @@ export default class HackathonRegisterForm extends Component {
     errors: { ...initialInputs },
     trigger: false,
     showNotification: false,
-    showSpinner: false
+    showSpinner: false,
+    checked: true
   };
 
   onChangeSelect = (key, value) => {
@@ -133,7 +137,7 @@ export default class HackathonRegisterForm extends Component {
       form[key] = "";
       this.setState({ ...form });
     }
-    this.setState({ trigger: false });
+    this.setState({ trigger: false, checked: false });
   };
 
   isErrorsEmpty = () => {
@@ -199,8 +203,66 @@ export default class HackathonRegisterForm extends Component {
   };
 
   getFormHeight = size => {
-    if (size === "xsmall" || size === "small") return "410px";
-    return "510px";
+    if (size === "xsmall" || size === "small") return "450px";
+    if (size === "medium") return "450px";
+    return "390px";
+  };
+
+  displayTerms = size => {
+    let url = "https://www.minka.io/pdf/CopyQRTransferenciasYA.pdf";
+    if (size === "xlarge" || size === "large")
+      return (
+        <Box flex={true} direction="row">
+          <CheckBox
+            // name="terms"
+            style={{ marginLeft: 1 }}
+            checked={!this.state.checked}
+            label="Acepto e indicó que leí y entendí el "
+            onChange={() =>
+              this.setState({
+                checked: !this.state.checked
+              })
+            }
+          />
+          <Anchor
+            display="flex"
+            style={{ marginLeft: 5, marginRight: 5 }}
+            href={url}
+            primary
+            target="_blank"
+            label="Aviso de privacidad"
+          />
+          de Minka Colombia S.A.
+        </Box>
+      );
+    else
+      return (
+        <Box>
+          <Box>
+            <CheckBox
+              // name="terms"
+              style={{ marginLeft: 1 }}
+              checked={!this.state.checked}
+              label="Acepto e indicó que leí y entendí el aviso de privacidad de Minka Colombia S.A."
+              onChange={() =>
+                this.setState({
+                  checked: !this.state.checked
+                })
+              }
+            />
+          </Box>
+          <Box>
+            <Anchor
+              display="flex"
+              style={{ marginLeft: 30, marginTop: 10 }}
+              href={url}
+              primary
+              target="_blank"
+              label="Aviso de privacidad"
+            />
+          </Box>
+        </Box>
+      );
   };
 
   render() {
@@ -214,14 +276,21 @@ export default class HackathonRegisterForm extends Component {
               justify="center"
               width="100%"
               height="100%"
+              style={{ overflow: "hidden" }}
               // pad="small"
             >
               <Image
-                flex={true}
                 fit="cover"
-                style={{ position: "absolute", zIndex: -1 }}
+                style={{
+                  position: "absolute",
+                  zIndex: -1,
+                  maxWidth: "100vw",
+                  width: "auto",
+                  height: "calc(100vh - 96px)"
+                }}
                 src={require("assets/images/fondo.jpg")}
               />
+
               <Box
                 background="light-1"
                 margin="large"
@@ -229,7 +298,13 @@ export default class HackathonRegisterForm extends Component {
                 round="21px"
                 elevation="medium"
               >
-                <Box style={{ padding: "10px 25px 0px" }}>
+                <Box
+                  style={{
+                    padding: "10px 25px 0px",
+                    textAlign: "center",
+                    marginBottom: 5
+                  }}
+                >
                   <Heading level="2" color="dark-2" size={size}>
                     <span
                       className="title-underlined"
@@ -247,8 +322,18 @@ export default class HackathonRegisterForm extends Component {
                   <Box
                     width={() => this.getFormWidth(size)}
                     overflow="auto"
-                    height="400px"
+                    height={this.getFormHeight(size)}
                   >
+                    <Paragraph
+                      size={size}
+                      style={{
+                        margin: "10px 10px",
+                        marginTop: 20,
+                        textAlign: "justify"
+                      }}
+                    >
+                      {FORM_TEXT}
+                    </Paragraph>
                     <Form
                       onSubmit={() => this.onSubmit(size)}
                       errors={this.state.errors}
@@ -261,32 +346,32 @@ export default class HackathonRegisterForm extends Component {
                           "first_name",
                           "Nombre",
                           false,
-                          "Elon"
+                          "Juan"
                         )}
                         {this.renderInput(
                           "last_name_id",
                           "last_name",
                           "Apellido",
                           false,
-                          "Musk"
+                          "Gómez"
                         )}
                         {this.renderInput(
                           "email_id",
                           "email",
                           "Correo electrónico",
                           false,
-                          "elonmusk@tesla.com"
+                          "juangomez@gmail.com"
                         )}
                         {this.renderInput(
                           "phone_id",
                           "phone",
                           "Número de teléfono",
                           false,
-                          "+59 319463478"
+                          "+57 319463478"
                         )}
                         {this.renderSelectInput(
-                          "banks_id",
-                          "banks",
+                          "bank_id",
+                          "bank",
                           "Entidad Financiera",
                           banks
                         )}
@@ -296,8 +381,16 @@ export default class HackathonRegisterForm extends Component {
                         )}
                       </Box>
 
-                      <Box flex={false} as="footer" align="center">
+                      {this.displayTerms(size)}
+
+                      <Box
+                        flex={false}
+                        as="footer"
+                        align="center"
+                        style={{ marginTop: "30px" }}
+                      >
                         <Button
+                          disabled={this.state.checked}
                           style={{ width: "100%" }}
                           type="submit"
                           label="Registrar"
@@ -308,16 +401,14 @@ export default class HackathonRegisterForm extends Component {
                   </Box>
                 )}
               </Box>
-
               <Box>
                 {this.state.showNotification && (
                   <Notification
                     visibility={true}
-                    text="User registered successfully!"
+                    text="Usuario registrado exitosamente!"
                   />
                 )}
               </Box>
-
               <Recaptcha
                 ref={ref => (this.recaptcha = ref)}
                 sitekey={"6LdT158UAAAAAM-PEFOsJy9_fFAd0Jfg6-qRXMH2"}

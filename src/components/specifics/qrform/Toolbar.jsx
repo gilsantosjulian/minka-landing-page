@@ -3,8 +3,6 @@ import { Box } from "grommet";
 
 import Logo from "components/specifics/toolbar/Logo";
 import UnresponsiveMenu from "components/specifics/toolbar/UnresponsiveMenu";
-import RegisterButton from "components/specifics/toolbar/RegisterButton";
-import ResponsiveMenu from "components/specifics/toolbar/ResponsiveMenu";
 import MenuButton from "components/specifics/toolbar/MenuButton";
 
 const styles = {
@@ -14,8 +12,8 @@ const styles = {
   }
 };
 
-export default ({ items, withButton, buttonLabel }) => {
-  const [reponsiveMenuVisibility, setReponsiveMenuVisibility] = useState(false);
+export default ({ items }) => {
+  const [setReponsiveMenuVisibility] = useState(false);
 
   const onMenuButtonPressed = visibility => {
     setReponsiveMenuVisibility(visibility);
@@ -32,12 +30,6 @@ export default ({ items, withButton, buttonLabel }) => {
     >
       <Logo />
       <UnresponsiveMenu items={items} />
-      <ResponsiveMenu
-        withButton={withButton}
-        visibility={reponsiveMenuVisibility}
-        items={items}
-        registerButtonLabel={buttonLabel}
-      />
       <MenuButton onMenuButtonPressed={onMenuButtonPressed} />
     </Box>
   );
