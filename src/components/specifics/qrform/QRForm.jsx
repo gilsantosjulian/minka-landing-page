@@ -230,7 +230,7 @@ export default class HackathonRegisterForm extends Component {
             href={url}
             primary
             target="_blank"
-            label="Política de privacidad"
+            label="Política de Privacidad"
           />
           <Box style={{ minWidth: 280 }}>de Minka Colombia S.A.S.</Box>
         </Box>
