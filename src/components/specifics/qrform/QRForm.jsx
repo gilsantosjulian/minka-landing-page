@@ -34,7 +34,7 @@ const initialInputs = {
 };
 
 const FORM_TEXT =
-  "Diligencia el siguiente formulario para que hagas parte de os primeros colombianos que podrán transferir su dinero de forma rápida, fácil, segura y a bajo costo:";
+  "Diligencia el siguiente formulario para que hagas parte de los primeros colombianos que podrán transferir su dinero de forma rápida, fácil, segura y a bajo costo:";
 
 let banks = [
   "Movii",
@@ -208,61 +208,34 @@ export default class HackathonRegisterForm extends Component {
     return "390px";
   };
 
-  displayTerms = size => {
+  displayTerms = () => {
     let url = "https://www.minka.io/pdf/CopyQRTransferenciasYA.pdf";
-    if (size === "xlarge" || size === "large")
-      return (
-        <Box flex={true} direction="row">
-          <CheckBox
-            // name="terms"
-            style={{ marginLeft: 1 }}
-            checked={!this.state.checked}
-            label="Acepto e indicó que leí y entendí el "
-            onChange={() =>
-              this.setState({
-                checked: !this.state.checked
-              })
-            }
-          />
+    return (
+      <Box flex={true} direction="row" wrap={true}>
+        <CheckBox
+          style={{ marginLeft: 1, width: 30 }}
+          checked={!this.state.checked}
+          onChange={() =>
+            this.setState({
+              checked: !this.state.checked
+            })
+          }
+        />
+        <Box flex={true} direction="row" wrap={true} style={{ marginLeft: 5 }}>
+          <Box style={{ minWidth: 280 }}>
+            Acepto e indicó que leí y entendí la
+          </Box>
           <Anchor
-            display="flex"
-            style={{ marginLeft: 5, marginRight: 5 }}
+            style={{ marginRight: 5, minWidth: 172 }}
             href={url}
             primary
             target="_blank"
-            label="Aviso de privacidad"
+            label="Política de privacidad"
           />
-          de Minka Colombia S.A.
+          <Box style={{ minWidth: 280 }}>de Minka Colombia S.A.S.</Box>
         </Box>
-      );
-    else
-      return (
-        <Box>
-          <Box>
-            <CheckBox
-              // name="terms"
-              style={{ marginLeft: 1 }}
-              checked={!this.state.checked}
-              label="Acepto e indicó que leí y entendí el aviso de privacidad de Minka Colombia S.A."
-              onChange={() =>
-                this.setState({
-                  checked: !this.state.checked
-                })
-              }
-            />
-          </Box>
-          <Box>
-            <Anchor
-              display="flex"
-              style={{ marginLeft: 30, marginTop: 10 }}
-              href={url}
-              primary
-              target="_blank"
-              label="Aviso de privacidad"
-            />
-          </Box>
-        </Box>
-      );
+      </Box>
+    );
   };
 
   render() {
@@ -381,7 +354,7 @@ export default class HackathonRegisterForm extends Component {
                         )}
                       </Box>
 
-                      {this.displayTerms(size)}
+                      {this.displayTerms()}
 
                       <Box
                         flex={false}
