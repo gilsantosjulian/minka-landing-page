@@ -12,14 +12,14 @@
     "init": "npm-run-all --parallel start watcher"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.27.2",
     "google-map-react": "^1.1.4",
-    "grommet": "^2.5.5",
+    "grommet": "^2.25.1",
     "grommet-icons": "^4.2.0",
     "intersection-observer": "^0.5.1",
     "js-event-bus": "0.0.5",
     "json2csv": "^4.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.23",
     "navi": "0.12.4",
     "navi-scripts": "0.12.4",
